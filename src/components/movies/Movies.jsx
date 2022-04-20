@@ -11,13 +11,56 @@ const MoviesContainer = styled.div`
 
 const Movies = () => {
 
-	const MoviesData = [0,1,2,3];
+	// const MoviesData = [0,1,2,3];
+	const MoviesData = [
+		{
+			name:'Guardian Invisible',
+			genre:'Action, Adventure, Drama',
+			reviews:98,
+			duration:137,
+			score:13,
+			id:23135
+		},
+		{
+			name:'Avengers',
+			genre:'Action',
+			reviews:125,
+			duration:102,
+			score:15,
+			id:515
+		},
+		{
+			name:'The Ugly True',
+			genre:'Comedy,Romance',
+			reviews:100,
+			duration:98,
+			score:8,
+			id:586
+		},
+		{
+			name:'Tenet',
+			genre:'Action, Sci-Fi, Thriller',
+			reviews:98,
+			duration:97,
+			score:16,
+			id:8746
+		},
+	];
 
   return (
 	  <MoviesContainer className='movies'>
 		<SearchingBar/>
 		{
-			MoviesData.map((movie, id) => <SingleContent key={id}/>)
+			MoviesData.map((movie, id) => 
+			<SingleContent 
+				key={movie.id}
+				name={movie.name}
+				genre={movie.genre}
+				reviews={movie.reviews}
+				duration={movie.duration}
+				score={movie.score}
+				id={movie.id}
+			/>)
 		}
 	  </MoviesContainer>
   )

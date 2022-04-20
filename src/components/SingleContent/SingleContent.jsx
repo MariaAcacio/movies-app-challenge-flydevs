@@ -19,7 +19,7 @@ import {
 
 
 
-const SingleContent = () => {
+const SingleContent = ({ name, genre, reviews, duration, score }) => {
 	const [ isLiked, setIsLiked ] = useState(false);
   return (
 	 <div className='singlecontent'>
@@ -33,13 +33,14 @@ const SingleContent = () => {
 							onClick={()=>(setIsLiked(!isLiked))}
 						/>
 					</HeartBox>
-					<Rating>+16</Rating>
-					<GenreMovieText>Film genre Lorem Ipsu</GenreMovieText>
+					<Rating>{`+${score}`}</Rating>
+					<GenreMovieText>{genre}</GenreMovieText>
 					<Reviews>
-					<StarRating/>
-					98 reviews</Reviews>
-					<MoviesName>Name of the movie</MoviesName>
-					<MoviesDuration>137 min</MoviesDuration>
+						<StarRating score={score}/>
+						{`${reviews} reviews`}
+					</Reviews>
+					<MoviesName>{name}</MoviesName>
+					<MoviesDuration>{`${duration} min`}</MoviesDuration>
 				</Poster>
 	 	</div>
 	 </div>
