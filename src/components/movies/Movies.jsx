@@ -11,13 +11,13 @@ const MoviesContainer = styled.div`
 
 const Movies = () => {
 
-	const arrayMovies = [0,1,2,3];
+	const MoviesData = [0,1,2,3];
 
   return (
 	  <MoviesContainer className='movies'>
 		<SearchingBar/>
 		{
-			arrayMovies.map((movie, id) => <SingleContent key={id}/>)
+			MoviesData.map((movie, id) => <SingleContent key={id}/>)
 		}
 	  </MoviesContainer>
   )
