@@ -1,6 +1,5 @@
 //movie component
 import { useState } from 'react'
-import imgMovie from './../../img/pelicula-guardian-invisible-600.jpg'
 import { FaHeart } from 'react-icons/fa'
 import { StarRating } from './StarRating'
 import { 
@@ -13,20 +12,20 @@ import {
 	Reviews, 
 	MoviesName, 
 	MoviesDuration
-} from './SingleContent.elements'
+} from './Card.elements'
 
 
+const IMG_HALF_PATH = "https://image.tmdb.org/t/p/w154";
+const IMG_UNAVAILABLE = "https://www.movienewz.com/img/films/poster-holder.jpg"
 
-
-
-const SingleContent = ({ name, genre, reviews, duration, score }) => {
+const Card = ({ name, genre='action', reviews, duration=90, score, poster }) => {
 	const [ isLiked, setIsLiked ] = useState(false);
   return (
-	 <div className='singlecontent'>
+	 <div className='card'>
 		<div>
 				<Poster>
 					<EmptyGradientCard></EmptyGradientCard>
-					<Image src={imgMovie} alt="testImage" />
+					<Image src={poster ? `${IMG_HALF_PATH}/${poster}`: IMG_UNAVAILABLE } alt="testImage" />
 					<HeartBox>
 						<FaHeart 
 							color={isLiked ? '#FF4D79' : '#FFF'}
@@ -47,5 +46,5 @@ const SingleContent = ({ name, genre, reviews, duration, score }) => {
   )
 }
 
-export default SingleContent
+export default Card
 

@@ -1,5 +1,6 @@
 import React from 'react'
-import SingleContent from '../SingleContent/SingleContent'
+import Card from '../Card/Card'
+import { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import SearchingBar from '../searchingBar/SearchingBar'
 
@@ -9,57 +10,48 @@ const MoviesContainer = styled.div`
 	flex-wrap: wrap;
 `
 
-const Movies = () => {
 
-	// const MoviesData = [0,1,2,3];
-	const MoviesData = [
-		{
-			name:'Guardian Invisible',
-			genre:'Action, Adventure, Drama',
-			reviews:98,
-			duration:137,
-			score:13,
-			id:23135
-		},
-		{
-			name:'Avengers',
-			genre:'Action',
-			reviews:125,
-			duration:102,
-			score:15,
-			id:515
-		},
-		{
-			name:'The Ugly True',
-			genre:'Comedy,Romance',
-			reviews:100,
-			duration:98,
-			score:8,
-			id:586
-		},
-		{
-			name:'Tenet',
-			genre:'Action, Sci-Fi, Thriller',
-			reviews:98,
-			duration:97,
-			score:16,
-			id:8746
-		},
-	];
+const Movies = () => {
+	const [movieData, setMovieData] = useState([]);
+	const [movieGenre, setMovieGenre] = useState([]);
+	useEffect(() => {
+		const DataMovie = async () => {
+			const url = 'https://api.themoviedb.org/3/discover/movie?api_key=9d0919906cb0d976875bf66ca4b10ec2'
+			const response = await fetch(url)
+			const objectObtained = await response.json()
+			setMovieData(objectObtained.results)
+		}
+		DataMovie()
+	}, []);
+
+	useEffect(() => {
+		const DataGenre = async () => {
+			const url = 'https://api.themoviedb.org/3/genre/movie/list?api_key=9d0919906cb0d976875bf66ca4b10ec2'
+			const response = await fetch(url)
+			const objectObtained = await response.json()
+			setMovieGenre(objectObtained.genres);
+		}
+		DataGenre()
+	}, []);
+	console.log(movieGenre);
+	console.log(movieData);
+	
 
   return (
 	  <MoviesContainer className='movies'>
 		<SearchingBar/>
 		{
-			MoviesData.map((movie, id) => 
-			<SingleContent 
+			movieData.map((movie, id) => 
+			<Card 
 				key={movie.id}
-				name={movie.name}
+				name={movie.title}
 				genre={movie.genre}
-				reviews={movie.reviews}
+				reviews={movie.popularity}
 				duration={movie.duration}
-				score={movie.score}
+				score={movie.vote_average}
+				poster = {movie.poster_path}
 				id={movie.id}
+				
 			/>)
 		}
 	  </MoviesContainer>
