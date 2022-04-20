@@ -1,5 +1,5 @@
 //movie component
-import imagen from './../../img/imagen-criptos.png'
+import imgMovie from './../../img/pelicula-guardian-invisible-600.jpg'
 import './SingleContent.css'
 
 const SingleContent = () => {
@@ -7,7 +7,7 @@ const SingleContent = () => {
 	 <div className='singlecontent'>
 		<div className='container'>
 				<div className="poster">
-					<img src={imagen} alt="cualquiera" />
+					<img src={imgMovie} alt="cualquiera" />
 
 					<div className="corazon">heart</div>
 					<div className="rating">rating</div>
