@@ -1,7 +1,7 @@
 import React from 'react'
 import SingleContent from '../SingleContent/SingleContent'
-import './Movies.css';
 import styled from '@emotion/styled'
+import SearchingBar from '../searchingBar/SearchingBar'
 
 const MoviesContainer = styled.div`
 	display: flex;
@@ -15,6 +15,7 @@ const Movies = () => {
 
   return (
 	  <MoviesContainer className='movies'>
+		<SearchingBar/>
 		{
 			arrayMovies.map((movie, id) => <SingleContent key={id}/>)
 		}

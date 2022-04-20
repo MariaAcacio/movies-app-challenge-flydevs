@@ -1,4 +1,19 @@
+ @font-face {
+	 font-family:'GilroyLight' ;
+	 src: url(./fonts/Gilroy-Light.otf) format('woff');
+	 font-display: block;
+ }
+ @font-face {
+	 font-family:'GilroyBold' ;
+	 src: url(./fonts/Gilroy-ExtraBold.otf) format('woff');
+	 font-display: block;
+ }
 .App {
+
   text-align: center;
-  margin: 0 16px;
+  margin: 0px 14px;
+  font-family: 'GilroyLight';
+  color: #fff;
+  padding-bottom: 3.75rem;
+
 }
