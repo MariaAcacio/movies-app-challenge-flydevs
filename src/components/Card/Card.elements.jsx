@@ -17,9 +17,9 @@ export const Poster = styled.div`
 	border:1px solid  rgba(95, 95, 117, 0.346);
 	overflow: hidden;
 	position: relative;
+
 `
 export const HeartBox = styled.div`
-	/* background-color: yellow; */
 	position: absolute;
 	top:12px;
 	right: 5px;

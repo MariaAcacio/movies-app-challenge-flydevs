@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { FaHeart } from 'react-icons/fa'
 import { StarRating } from './StarRating'
+import { IMG_HALF_PATH, IMG_UNAVAILABLE } from '../../tools/imgPaths'
 import { 
 	Image, 
 	Poster, 
@@ -15,11 +16,21 @@ import {
 } from './Card.elements'
 
 
-const IMG_HALF_PATH = "https://image.tmdb.org/t/p/w154";
-const IMG_UNAVAILABLE = "https://www.movienewz.com/img/films/poster-holder.jpg"
 
-const Card = ({ name, genre='action', reviews, duration=90, score, poster }) => {
+
+const Card = ({ name, genresIds, reviews, duration=90, score, poster, genresList }) => {
 	const [ isLiked, setIsLiked ] = useState(false);
+
+	const getMovieGenres = (genresIds) => {
+
+		let preFilteredGenres = genresIds.map(movieGenreId => {
+			return genresList.filter(genre => (genre.id === movieGenreId));
+		}).flat();
+		
+		return preFilteredGenres.map(genre => genre.name).join(", ");
+	}
+	const movieGendes= getMovieGenres(genresIds)
+
   return (
 	 <div className='card'>
 		<div>
@@ -33,7 +44,7 @@ const Card = ({ name, genre='action', reviews, duration=90, score, poster }) => 
 						/>
 					</HeartBox>
 					<Rating>{`+${score}`}</Rating>
-					<GenreMovieText>{genre}</GenreMovieText>
+					<GenreMovieText>{movieGendes}</GenreMovieText>
 					<Reviews>
 						<StarRating score={score}/>
 						{`${reviews} reviews`}
