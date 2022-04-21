@@ -17,10 +17,6 @@ const MoviesContainer = styled.div`
 const Movies = ({ isLiked, setIsLiked }) => {
 	const {isLoading, moviesData, movieGenres} = useContext(GlobalContext)
 
-	console.log("Movies 01", isLoading, moviesData, movieGenres);
-	console.log("Movies 02", movieGenres);
-	
-
   return (
 	  <MoviesContainer className='movies'>
 		<SearchingBar/>

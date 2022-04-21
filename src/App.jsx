@@ -20,7 +20,6 @@ function App() {
 			setIsLoading(true)
 			const fetchedData = await fetchMoviesData()
 
-			console.log("App 01", fetchedData);
 			setMoviesData(fetchedData.movies)
 			setMovieGenres(fetchedData.genres)
 			setIsLoading(false)

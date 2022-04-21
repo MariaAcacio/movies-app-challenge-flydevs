@@ -1,88 +1,63 @@
-import React from 'react'
-import testImg from './../../img/pelicula-guardian-invisible-600.jpg'
+import { useEffect, useState, useContext } from 'react'
+import { GlobalContext } from '../../App';
+import {  useParams } from 'react-router-dom';
+import { getMovieGenres } from '../../tools/getMovieGenres';
 import { AiFillPlayCircle } from 'react-icons/ai'
 import HeartIcon from '../heartIcon/HeartIcon'
-import { IMG_HALF_PATH_W500 } from '../../tools/imgPaths'
-import styled from '@emotion/styled'
+import { IMG_HALF_PATH_W500, IMG_UNAVAILABLE } from '../../tools/imgPaths'
+import { StarRating } from '../Card/StarRating'
+import Cast from '../cast/Cast'
+import {
+	MovieDetailsContainer,
+	EmptyContainer,
+	TrailerImg,
+	IconPlayBox,
+	MovieTitle,
+	StoryLineContainer,
+	StoryLineTitle,
+	StoryLine,
+	StarsBox,
+	GenreMovieDetailsText,
+	CastTitle
+} from './MovieDetails.elements'
 
-const MovieDetailsContainer = styled.div`
-	margin: 0 -16px;
-	position: relative;
-	height: 298px;
-`
-const EmptyContainer = styled.div`
-	width: 100%;
-   height: inherit;
-   position: absolute;
-   background: linear-gradient(180deg, rgba(25, 25, 38, 0.0001) 50%, #191926 92.15%);
-`
-const TrailerImg = styled.img`
-	width: 100%;
-	height: inherit;
-   object-fit: cover;
-	/* opacity: 0.18; */
-	
-`
-const IconPlayBox = styled.div`
-	position: absolute;
-	width: 72px;
-	height: 72px;
-	left: 152px;
-	top: 113px;
-	mix-blend-mode: normal;
-	opacity: 0.75;
-`
-const MovieTitle = styled.h2`
-	position: absolute;
-	width: 343px;
-	height: 80px;
-	left: calc(50% - 343px/2);
-	top: 13rem;
-	font-family: 'GilroyBold';
-	font-size: 40px;
-	line-height: 40px;
-	display: flex;
-	align-items: center;
-	letter-spacing: -0.5px;
-`
-const StoryLineContainer = styled.div`
-	font-size: 14px;
-	line-height: 20px;
-	margin-bottom: 1.5rem;
-`
-const StoryLineTitle = styled.p`
-	font-family: 'GilroyBold';
-   margin-bottom: 0.25rem;
-	position: absolute;
-	width: 343px;
-	height: 20px;
-	left: calc(50% - 343px/2);
-	top: 380px;
-	font-weight: 800;
-	font-size: 14px;
-	line-height: 20px;
-	display: flex;
-	align-items: center;
-`
-const StoryLine = styled.div`
-	margin-bottom: 1.5rem;
-	position: absolute;
-	left: calc(50% - 343px/2);
-	right: 0%;
-	top: 52%;
-	bottom: 0%;
-	display: flex;
-	align-items: center;
-	color: #FFFFFF;
-	mix-blend-mode: normal;
-	opacity: 0.75;
-`
+
 const MovieDetails = ({ isLiked, setIsLiked}) => {
-  return (
+	const {id} = useParams();
+	const [details, setDetails] = useState("locote");
+	const [Cast, setCast] = useState();
+	const { isLoading, moviesData, movieGenres} = useContext(GlobalContext)
+	let detailGenres = "";
+
+	useEffect(() => {
+		const globalDetailsData = async ()=> {
+			const urlDetails =`https://api.themoviedb.org/3/movie/${id}?api_key=9d0919906cb0d976875bf66ca4b10ec2`
+			const urlCast = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=9d0919906cb0d976875bf66ca4b10ec2`
+
+			const [ response, response2 ] = await Promise.all([ fetch(urlDetails), fetch(urlCast)])
+			const detailsObjectObtained = await response.json()
+			const castObjectObtained = await response2.json()
+			setDetails(detailsObjectObtained)
+			setCast(castObjectObtained)
+		}
+		globalDetailsData();
+	}, []);
+
+	const getIdsMovieGenres = details.genres?.map(genre => genre.id)
+
+	if (!!getIdsMovieGenres) {
+		detailGenres = getMovieGenres(getIdsMovieGenres, movieGenres);
+	}
+	
+	
+   return (
 	  <>
 		<MovieDetailsContainer>
 			<EmptyContainer></EmptyContainer>
-			<TrailerImg src={testImg} alt='movieDetails'/>
+			<TrailerImg 
+				src={details.backdrop_path ? `${IMG_HALF_PATH_W500}/${details.backdrop_path}`: IMG_UNAVAILABLE}
+				alt={details.title}
+			/>
 			<IconPlayBox>
 				<AiFillPlayCircle
 					color='#FFFFFF'
@@ -91,14 +66,22 @@ const MovieDetails = ({ isLiked, setIsLiked}) => {
 			</IconPlayBox>
 			<HeartIcon isLiked={isLiked} setIsLiked={setIsLiked}/>
 		</MovieDetailsContainer>
-		<MovieTitle className="movie-title">Title of the movie</MovieTitle>
-		{/* <h3>Genres </h3> */}
+		<MovieTitle className="movie-title">{details.title}</MovieTitle>
+		<StarsBox>
+			<StarRating 
+				score={details.vote_average}
+				size='14px'
+			/>
+		</StarsBox>
+		<GenreMovieDetailsText>{detailGenres} </GenreMovieDetailsText>
 		<StoryLineContainer>
 			<StoryLineTitle>Storyline</StoryLineTitle>
-			<StoryLine>Details overview</StoryLine>
+			<StoryLine>{details.overview}</StoryLine>
 		</StoryLineContainer>
+		<CastTitle>Cast</CastTitle>
+		{/* <Cast/> */}
 	 </>
-  )
+   )
 }
 
 export default MovieDetails

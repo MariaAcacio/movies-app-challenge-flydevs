@@ -1,0 +1,8 @@
+export const getMovieGenres = (genresIds, genresList) => {
+
+		let preFilteredGenres = genresIds.map(movieGenreId => {
+			return genresList.filter(genre => (genre.id === movieGenreId));
+		}).flat();
+		
+		return preFilteredGenres.map(genre => genre.name).join(", ");
+	}

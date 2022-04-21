@@ -57,8 +57,7 @@ export const GenreMovieText = styled.p`
 	line-height: 12px;
 	display: flex;
 	align-items: center;
-
-color: #FF3466;
+	color: #FF3466;
 ` 
 export const Reviews = styled.div`
 
@@ -71,11 +70,9 @@ export const Reviews = styled.div`
 	font-weight: 800;
 	font-size: 7px;
 	line-height: 12px;
-
 	display: flex;
 	align-items: center;
 	text-transform: uppercase;
-
 	color: #6D6D80;
 
 `
@@ -90,11 +87,8 @@ export const MoviesName = styled.div`
 	font-weight: 800;
 	font-size: 14px;
 	line-height: 20px;
-	/* identical to box height, or 143% */
-
 	display: flex;
 	align-items: center;
-
 	background: linear-gradient(152.39deg, #ECECEC 25.4%, #C4C4C4 52.32%, #FFFFFF 82.83%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -107,17 +101,16 @@ export const MoviesDuration = styled.div`
 	height: 250px;
 	left: calc(50% - 154px/2);
 	top: calc(50% - 12px/2 + 10px);
-
 	font-family: 'GilroyBold';
 	font-style: normal;
 	font-weight: 800;
 	font-size: 8px;
 	line-height: 12px;
-	/* identical to box height, or 150% */
-
 	display: flex;
 	align-items: center;
 	text-transform: uppercase;
-
 	color: #565665;
+`
+export const SpanStars = styled.span`
+	margin-right: 5px;
 `

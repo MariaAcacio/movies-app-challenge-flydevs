@@ -1,8 +1,7 @@
-//movie component
-import { useState } from 'react'
 import HeartIcon  from '../heartIcon/HeartIcon'
 import { StarRating } from './StarRating'
 import { IMG_HALF_PATH_W154, IMG_UNAVAILABLE } from '../../tools/imgPaths'
+import { getMovieGenres } from '../../tools/getMovieGenres'
 import { 
 	Image, 
 	Poster,  
@@ -11,7 +10,8 @@ import {
 	GenreMovieText, 
 	Reviews, 
 	MoviesName, 
-	MoviesDuration
+	MoviesDuration,
+	SpanStars
 } from './Card.elements'
 
 
@@ -26,16 +26,7 @@ const Card = ({
 	isLiked, 
 	setIsLiked }) => {
 	
-
-	const getMovieGenres = (genresIds) => {
-
-		let preFilteredGenres = genresIds.map(movieGenreId => {
-			return genresList.filter(genre => (genre.id === movieGenreId));
-		}).flat();
-		
-		return preFilteredGenres.map(genre => genre.name).join(", ");
-	}
-	const movieGendes= getMovieGenres(genresIds)
+	const movieGendes= getMovieGenres(genresIds, genresList)
 
   return (
 	 <div className='card'>
@@ -47,7 +38,12 @@ const Card = ({
 					<Rating>{`+${score}`}</Rating>
 					<GenreMovieText>{movieGendes}</GenreMovieText>
 					<Reviews>
-						<StarRating score={score}/>
+						<SpanStars>
+							<StarRating 
+								score={score}
+								size='7px'
+							/>
+						</SpanStars>
 						{`${reviews} reviews`}
 					</Reviews>
 					<MoviesName>{name}</MoviesName>

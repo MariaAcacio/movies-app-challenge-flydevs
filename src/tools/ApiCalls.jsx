@@ -8,5 +8,4 @@ export const fetchMoviesData = async () => {
 	const movieObjectObtained = await response.json()
 	const genreObjectObtained = await response2.json()
 	return({movies:movieObjectObtained.results, genres:genreObjectObtained.genres})
-
 }
