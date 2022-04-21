@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import SearchingBar from '../searchingBar/SearchingBar'
 import Spinner from '../spinner/Spinner'
+import ErrorMessage from "../errorMessage/ErrorMessage";
 
 const MoviesContainer = styled.div`
 	display: flex;
@@ -13,16 +14,14 @@ const MoviesContainer = styled.div`
 `
 
 
-const Movies = () => {
+const Movies = ({ isLiked, setIsLiked }) => {
 	const [movieData, setMovieData] = useState([]);
 	const [movieGenres, setMovieGenres] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
-	const [isError, setIsError] = useState(false);
 	
 	useEffect(() => {
 		const DataMovie = async () => {
 		
-				
 				const urlMovies = 'https://api.themoviedb.org/3/discover/movie?api_key=9d0919906cb0d976875bf66ca4b10ec2'
 				const urlGenres = 'https://api.themoviedb.org/3/genre/movie/list?api_key=9d0919906cb0d976875bf66ca4b10ec2'
 				
@@ -34,15 +33,8 @@ const Movies = () => {
 				setMovieData(movieObjectObtained.results);
 				setMovieGenres(genreObjectObtained.genres);
 				setIsLoading(false)
-			
-			
-			
-
 		}
-		
 		DataMovie()
-		.catch (console.error);;
-		
 	}, []);
 
 	
@@ -64,10 +56,12 @@ const Movies = () => {
 						score={movie.vote_average}
 						poster = {movie.poster_path}
 						id={movie.id}
+						isLiked={isLiked}
+						setIsLiked={setIsLiked}
 					/>
 				</Link>
 			) 
-			: alert('error')
+			: <ErrorMessage/>
 		} 
 	  </MoviesContainer>
   )

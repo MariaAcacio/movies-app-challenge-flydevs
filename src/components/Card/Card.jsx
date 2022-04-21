@@ -1,12 +1,11 @@
 //movie component
 import { useState } from 'react'
-import { FaHeart } from 'react-icons/fa'
+import HeartIcon  from '../heartIcon/HeartIcon'
 import { StarRating } from './StarRating'
-import { IMG_HALF_PATH, IMG_UNAVAILABLE } from '../../tools/imgPaths'
+import { IMG_HALF_PATH_W154, IMG_UNAVAILABLE } from '../../tools/imgPaths'
 import { 
 	Image, 
-	Poster, 
-	HeartBox, 
+	Poster,  
 	Rating, 
 	EmptyGradientCard, 
 	GenreMovieText, 
@@ -16,10 +15,17 @@ import {
 } from './Card.elements'
 
 
-
-
-const Card = ({ name, genresIds, reviews, duration=90, score, poster, genresList }) => {
-	const [ isLiked, setIsLiked ] = useState(false);
+const Card = ({ 
+	name, 
+	genresIds, 
+	reviews, 
+	duration=90, 
+	score, 
+	poster, 
+	genresList, 
+	isLiked, 
+	setIsLiked }) => {
+	
 
 	const getMovieGenres = (genresIds) => {
 
@@ -36,13 +42,8 @@ const Card = ({ name, genresIds, reviews, duration=90, score, poster, genresList
 		<div>
 				<Poster>
 					<EmptyGradientCard></EmptyGradientCard>
-					<Image src={poster ? `${IMG_HALF_PATH}/${poster}`: IMG_UNAVAILABLE } alt="testImage" />
-					<HeartBox>
-						<FaHeart 
-							color={isLiked ? '#FF4D79' : '#FFF'}
-							onClick={()=>(setIsLiked(!isLiked))}
-						/>
-					</HeartBox>
+					<HeartIcon isLiked = {isLiked} setIsLiked={setIsLiked}/>
+					<Image src={poster ? `${IMG_HALF_PATH_W154}/${poster}`: IMG_UNAVAILABLE } alt="testImage" />
 					<Rating>{`+${score}`}</Rating>
 					<GenreMovieText>{movieGendes}</GenreMovieText>
 					<Reviews>

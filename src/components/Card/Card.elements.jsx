@@ -37,6 +37,7 @@ export const Rating = styled.div`
 	border: 1px solid #191926;
 	box-sizing: border-box;
 	border-radius: 5px;
+	color: white;
 `
 export const EmptyGradientCard = styled.div`
 	width: 100%;
