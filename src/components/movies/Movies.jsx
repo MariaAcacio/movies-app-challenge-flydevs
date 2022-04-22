@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Card from '../Card/Card';
 import { useContext } from 'react';
 import { GlobalContext } from "../../App";
@@ -17,13 +16,12 @@ const MoviesContainer = styled.div`
 const Movies = ({ isLiked, setIsLiked }) => {
 	const {isLoading, moviesData, movieGenres} = useContext(GlobalContext);
 
-  return (
+	return (
 	  <MoviesContainer className='movies'>
 		<SearchingBar/>
 		{isLoading && <Spinner/>}
 		{
 			 moviesData ? moviesData.map((movie) => 
-				<Link key={movie.id} to={`/movies/${movie.id}`}>
 					<Card 
 						key={movie.id}
 						name={movie.title}
@@ -37,7 +35,6 @@ const Movies = ({ isLiked, setIsLiked }) => {
 						isLiked={isLiked}
 						setIsLiked={setIsLiked}
 					/>
-				</Link>
 			) 
 			: <ErrorMessage/>
 		} 
