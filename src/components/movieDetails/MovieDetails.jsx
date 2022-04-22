@@ -122,11 +122,11 @@ const MovieDetails = () => {
 									id={castInfo.id}
 								/>).filter((elm,index, elmArray)=> {
 										const numberElementsShown = isShowingLess? 8 : elmArray.length;							
+										console.log(elmArray);
 										return index < numberElementsShown;
 									}) 
 							: <ErrorMessage/>}
 					</CastingContainer>
-					<CastCard/>
 				</>)
 				: <ErrorMessage/>
 			}
