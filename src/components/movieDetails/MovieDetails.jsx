@@ -30,11 +30,12 @@ import {
 } from './MovieDetails.elements'
 
 
-const MovieDetails = ({ isLiked, setIsLiked}) => {
+const MovieDetails = () => {
 	const {id} = useParams();
-	const [details, setDetails] = useState([]);
+	const [details, setDetails] = useState({});
+	const [isLoading, setIsLoading] = useState(true);
 	const [Cast, setCast] = useState([]);
-	const { isLoading, setIsLoading, moviesData, movieGenres} = useContext(GlobalContext);
+	const { moviesData, movieGenres} = useContext(GlobalContext);
 	let detailGenres = "";
 
 	useEffect(() => {
@@ -58,51 +59,55 @@ const MovieDetails = ({ isLiked, setIsLiked}) => {
 		detailGenres = getMovieGenres(getIdsMovieGenres, movieGenres);
 	}
 	
-	
    return (
-	  <>
-	  {isLoading && <Spinner/>}
-		<MovieDetailsContainer>
-			<EmptyContainer></EmptyContainer>
-			<TrailerImg 
-				src={details.backdrop_path ? `${IMG_HALF_PATH_W500}/${details.backdrop_path}`: IMG_UNAVAILABLE}
-				alt={details.title}
-			/>
-			<IconPlayBox>
-				<AiFillPlayCircle
-					color='#FFFFFF'
-					size='80px'
-				/>
-			<IconChevronBox>
-				<BsChevronLeft 
-					color='#FFFFFF'
-					size='15px'
-				/>
-			</IconChevronBox>
-			</IconPlayBox>
-			<HeartBox>
-				<HeartIcon isLiked={isLiked} setIsLiked={setIsLiked}/>
-			</HeartBox>
-			<Link to={`/movies`}>
-				<BackButton>Back</BackButton>
-			</Link>
-			<Score>{`+${details.vote_average}`}</Score>
-		</MovieDetailsContainer>
-		<MovieTitle className="movie-title">{details.title}</MovieTitle>
-		<StarsBox>
-			<StarRating 
-				score={details.vote_average}
-				size='14px'
-			/>
-		</StarsBox>
-		<GenreMovieDetailsText>{detailGenres} </GenreMovieDetailsText>
-		<StoryLineContainer>
-			<StoryLineTitle>Storyline</StoryLineTitle>
-			<StoryLine>{details.overview}</StoryLine>
-		</StoryLineContainer>
-		<CastTitle>Cast</CastTitle>
-		{/* <Cast/> */}
-	 </>
+		<>
+			{ isLoading && <Spinner/>}
+			{ details ? (
+				<>
+					<MovieDetailsContainer>
+						<EmptyContainer></EmptyContainer>
+						<TrailerImg 
+							src={details.backdrop_path ? `${IMG_HALF_PATH_W500}/${details.backdrop_path}`: IMG_UNAVAILABLE}
+							alt={details.title}
+						/>
+						<IconPlayBox>
+							<AiFillPlayCircle
+								color='#FFFFFF'
+								size='80px'
+							/>
+						<IconChevronBox>
+							<BsChevronLeft 
+								color='#FFFFFF'
+								size='15px'
+							/>
+						</IconChevronBox>
+						</IconPlayBox>
+						<HeartBox>
+							<HeartIcon id={parseInt(id)} />
+						</HeartBox>
+						<Link to={`/movies`}>
+							<BackButton>Back</BackButton>
+						</Link>
+						<Score>{`+${details.vote_average}`}</Score>
+					</MovieDetailsContainer>
+					<MovieTitle className="movie-title">{details.title}</MovieTitle>
+					<StarsBox>
+						<StarRating 
+							score={details.vote_average}
+							size='14px'
+						/>
+					</StarsBox>
+					<GenreMovieDetailsText>{detailGenres} </GenreMovieDetailsText>
+					<StoryLineContainer>
+						<StoryLineTitle>Storyline</StoryLineTitle>
+						<StoryLine>{details.overview}</StoryLine>
+					</StoryLineContainer>
+					<CastTitle>Cast</CastTitle>
+					{/* <Cast/> */}
+				</>)
+				: <p> Errito </p>
+			}
+		</>
    )
 }
 

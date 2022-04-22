@@ -25,8 +25,7 @@ const Card = ({
 	score, 
 	poster, 
 	genresList, 
-	isLiked, 
-	setIsLiked }) => {
+}) => {
 	
 	const movieGendes= getMovieGenres(genresIds, genresList);
 	let navigate = useNavigate();
@@ -39,7 +38,7 @@ const Card = ({
 	 <div className='card' onClick={handleClick}>
 		<Poster>
 			<EmptyGradientCard></EmptyGradientCard>
-			<HeartIcon isLiked = {isLiked} setIsLiked={setIsLiked}/>
+			<HeartIcon id={id} />
 			<Image src={poster ? `${IMG_HALF_PATH_W154}/${poster}`: IMG_UNAVAILABLE } alt="testImage" />
 			<Rating>{`+${score}`}</Rating>
 			<GenreMovieText>{movieGendes}</GenreMovieText>

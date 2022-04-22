@@ -10,10 +10,10 @@ import './App.css';
 export const GlobalContext = createContext();
 
 function App() {
-	const [ isLiked, setIsLiked ] = useState(false);
-	const [moviesData, setMoviesData] = useState([]);
-	const [movieGenres, setMovieGenres] = useState([]);
-	const [isLoading, setIsLoading] = useState(false);
+	const [ isLoading, setIsLoading ] = useState(false);
+	const [ moviesData, setMoviesData ] = useState([]);
+	const [ movieGenres, setMovieGenres ] = useState([]);
+	const [ likesList, setLikesList ] = useState([]);
 
 	useEffect(() => {
 		const getMoviesData = async () =>{
@@ -35,19 +35,16 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-				<GlobalContext.Provider value={{isLoading, setIsLoading, moviesData, movieGenres}}>
+				<GlobalContext.Provider value={{
+						isLoading, setIsLoading, 
+						moviesData, 
+						movieGenres, 
+						likesList, setLikesList
+				}}>
 					<Routes>
 						<Route path='/' element={<Movies/>} />
-						<Route path='/movies' element={
-							<Movies 
-								isLiked={isLiked} 
-								setIsLiked={setIsLiked}
-							/>} />
-						<Route path='/movies/:id' element={
-							<MovieDetails 
-								isLiked={isLiked} 
-								setIsLiked={setIsLiked} 
-							/>} />
+						<Route path='/movies' element={<Movies />} />
+						<Route path='/movies/:id' element={<MovieDetails />} />
 						<Route path='/actorbio/:id' element={<ActorBio />} />
 						<Route path='/favorites' element={<Favorites />} />
 					</Routes>

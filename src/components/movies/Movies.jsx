@@ -13,7 +13,7 @@ const MoviesContainer = styled.div`
 `
 
 
-const Movies = ({ isLiked, setIsLiked }) => {
+const Movies = () => {
 	const {isLoading, moviesData, movieGenres} = useContext(GlobalContext);
 
 	return (
@@ -21,7 +21,7 @@ const Movies = ({ isLiked, setIsLiked }) => {
 		<SearchingBar/>
 		{isLoading && <Spinner/>}
 		{
-			 moviesData ? moviesData.map((movie) => 
+			 moviesData?.length > 0 ? moviesData.map((movie) => 
 					<Card 
 						key={movie.id}
 						name={movie.title}
@@ -32,8 +32,6 @@ const Movies = ({ isLiked, setIsLiked }) => {
 						score={movie.vote_average}
 						poster = {movie.poster_path}
 						id={movie.id}
-						isLiked={isLiked}
-						setIsLiked={setIsLiked}
 					/>
 			) 
 			: <ErrorMessage/>
