@@ -1,7 +1,7 @@
-import HeartIcon  from '../heartIcon/HeartIcon'
-import { StarRating } from './StarRating'
-import { IMG_HALF_PATH_W154, IMG_UNAVAILABLE } from '../../tools/imgPaths'
-import { getMovieGenres } from '../../tools/getMovieGenres'
+import HeartIcon  from '../heartIcon/HeartIcon';
+import { StarRating } from './StarRating';
+import { IMG_HALF_PATH_W154, IMG_UNAVAILABLE } from '../../tools/imgPaths';
+import { getMovieGenres } from '../../tools/getMovieGenres';
 import { 
 	Image, 
 	Poster,  
@@ -12,7 +12,7 @@ import {
 	MoviesName, 
 	MoviesDuration,
 	SpanStars
-} from './Card.elements'
+} from './Card.elements';
 
 
 const Card = ({ 
@@ -26,7 +26,7 @@ const Card = ({
 	isLiked, 
 	setIsLiked }) => {
 	
-	const movieGendes= getMovieGenres(genresIds, genresList)
+	const movieGendes= getMovieGenres(genresIds, genresList);
 
   return (
 	 <div className='card'>
@@ -54,5 +54,5 @@ const Card = ({
   )
 }
 
-export default Card
+export default Card;
 

@@ -1,11 +1,11 @@
 import React, { useState, createContext, useEffect } from 'react';
-import { BrowserRouter, Routes, Route }from 'react-router-dom'
-import ActorBio from './components/actorBio/ActorBio'
-import Favorites from './components/favorites/Favorites'
-import MovieDetails from './components/movieDetails/MovieDetails'
-import Movies from './components/movies/Movies'
-import './App.css'
-import { fetchMoviesData } from './tools/ApiCalls';
+import { BrowserRouter, Routes, Route }from 'react-router-dom';
+import ActorBio from './components/actorBio/ActorBio';
+import Favorites from './components/favorites/Favorites';
+import MovieDetails from './components/movieDetails/MovieDetails';
+import Movies from './components/movies/Movies';
+import { fetchDataFromApi } from './tools/ApiCalls';
+import './App.css';
 
 export const GlobalContext = createContext();
 
@@ -17,22 +17,25 @@ function App() {
 
 	useEffect(() => {
 		const getMoviesData = async () =>{
-			setIsLoading(true)
-			const fetchedData = await fetchMoviesData()
+			const urlMovies = 'https://api.themoviedb.org/3/discover/movie?api_key=9d0919906cb0d976875bf66ca4b10ec2';
+			const urlGenres = 'https://api.themoviedb.org/3/genre/movie/list?api_key=9d0919906cb0d976875bf66ca4b10ec2';
+			
+			setIsLoading(true);
+			const { result1: fetchedMovies, result2: fetchedGenres } = await fetchDataFromApi(urlMovies, urlGenres);
 
-			setMoviesData(fetchedData.movies)
-			setMovieGenres(fetchedData.genres)
-			setIsLoading(false)
+			setMoviesData(fetchedMovies.results);
+			setMovieGenres(fetchedGenres.genres);
+			setIsLoading(false);
 		}
 		if (moviesData.length === 0 ) {
-			getMoviesData()
+			getMoviesData();
 		}
 	}, []);
 
   return (
     <BrowserRouter>
       <div className="App">
-				<GlobalContext.Provider value={{isLoading, moviesData, movieGenres}}>
+				<GlobalContext.Provider value={{isLoading, setIsLoading, moviesData, movieGenres}}>
 					<Routes>
 						<Route path='/' element={<Movies/>} />
 						<Route path='/movies' element={
@@ -54,4 +57,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

@@ -2,11 +2,15 @@ import { useEffect, useState, useContext } from 'react'
 import { GlobalContext } from '../../App';
 import {  useParams } from 'react-router-dom';
 import { getMovieGenres } from '../../tools/getMovieGenres';
-import { AiFillPlayCircle } from 'react-icons/ai'
-import HeartIcon from '../heartIcon/HeartIcon'
-import { IMG_HALF_PATH_W500, IMG_UNAVAILABLE } from '../../tools/imgPaths'
-import { StarRating } from '../Card/StarRating'
-import Cast from '../cast/Cast'
+import { Link } from "react-router-dom";
+import { AiFillPlayCircle } from 'react-icons/ai';
+import { BsChevronLeft } from 'react-icons/bs';
+import HeartIcon from '../heartIcon/HeartIcon';
+import { IMG_HALF_PATH_W500, IMG_UNAVAILABLE } from '../../tools/imgPaths';
+import { StarRating } from '../Card/StarRating';
+import Spinner from '../spinner/Spinner';
+import Cast from '../cast/Cast';
+import { fetchDataFromApi } from '../../tools/ApiCalls';
 import {
 	MovieDetailsContainer,
 	EmptyContainer,
@@ -18,32 +22,37 @@ import {
 	StoryLine,
 	StarsBox,
 	GenreMovieDetailsText,
-	CastTitle
+	CastTitle,
+	HeartBox,
+	BackButton,
+	IconChevronBox,
+	Score
 } from './MovieDetails.elements'
 
 
 const MovieDetails = ({ isLiked, setIsLiked}) => {
 	const {id} = useParams();
-	const [details, setDetails] = useState("locote");
-	const [Cast, setCast] = useState();
-	const { isLoading, moviesData, movieGenres} = useContext(GlobalContext)
+	const [details, setDetails] = useState([]);
+	const [Cast, setCast] = useState([]);
+	const { isLoading, setIsLoading, moviesData, movieGenres} = useContext(GlobalContext);
 	let detailGenres = "";
 
 	useEffect(() => {
-		const globalDetailsData = async ()=> {
-			const urlDetails =`https://api.themoviedb.org/3/movie/${id}?api_key=9d0919906cb0d976875bf66ca4b10ec2`
-			const urlCast = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=9d0919906cb0d976875bf66ca4b10ec2`
-
-			const [ response, response2 ] = await Promise.all([ fetch(urlDetails), fetch(urlCast)])
-			const detailsObjectObtained = await response.json()
-			const castObjectObtained = await response2.json()
-			setDetails(detailsObjectObtained)
-			setCast(castObjectObtained)
+		const getGlobalDetailsData = async ()=> {
+			const urlDetails =`https://api.themoviedb.org/3/movie/${id}?api_key=9d0919906cb0d976875bf66ca4b10ec2`;
+			const urlCast = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=9d0919906cb0d976875bf66ca4b10ec2`;
+			
+			setIsLoading(true);
+			const { result1: fetchedDetails, result2: fetchedCast } = await fetchDataFromApi(urlDetails, urlCast);
+			
+			setDetails(fetchedDetails);
+			setCast(fetchedCast);
+			setIsLoading(false);
 		}
-		globalDetailsData();
+		getGlobalDetailsData();
 	}, []);
 
-	const getIdsMovieGenres = details.genres?.map(genre => genre.id)
+	const getIdsMovieGenres = details.genres?.map(genre => genre.id);
 
 	if (!!getIdsMovieGenres) {
 		detailGenres = getMovieGenres(getIdsMovieGenres, movieGenres);
@@ -52,6 +61,7 @@ const MovieDetails = ({ isLiked, setIsLiked}) => {
 	
    return (
 	  <>
+	  {isLoading && <Spinner/>}
 		<MovieDetailsContainer>
 			<EmptyContainer></EmptyContainer>
 			<TrailerImg 
@@ -63,8 +73,20 @@ const MovieDetails = ({ isLiked, setIsLiked}) => {
 					color='#FFFFFF'
 					size='80px'
 				/>
+			<IconChevronBox>
+				<BsChevronLeft 
+					color='#FFFFFF'
+					size='15px'
+				/>
+			</IconChevronBox>
 			</IconPlayBox>
-			<HeartIcon isLiked={isLiked} setIsLiked={setIsLiked}/>
+			<HeartBox>
+				<HeartIcon isLiked={isLiked} setIsLiked={setIsLiked}/>
+			</HeartBox>
+			<Link to={`/movies`}>
+				<BackButton>Back</BackButton>
+			</Link>
+			<Score>{`+${details.vote_average}`}</Score>
 		</MovieDetailsContainer>
 		<MovieTitle className="movie-title">{details.title}</MovieTitle>
 		<StarsBox>
@@ -84,4 +106,4 @@ const MovieDetails = ({ isLiked, setIsLiked}) => {
    )
 }
 
-export default MovieDetails
+export default MovieDetails;

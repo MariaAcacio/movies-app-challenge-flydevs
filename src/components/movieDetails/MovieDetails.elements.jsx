@@ -4,41 +4,74 @@ export const MovieDetailsContainer = styled.div`
 	margin: 0 -16px;
 	position: relative;
 	height: 298px;
+	overflow: hidden;
 `
 export const EmptyContainer = styled.div`
 	width: 100%;
    height: inherit;
    position: absolute;
-   background: linear-gradient(180deg, rgba(25, 25, 38, 0.0001) 50%, #191926 92.15%);
+	background: linear-gradient(180deg, rgba(25, 25, 38, 0.0001) -200%, #191926 92.15%);
 `
+export const ImgContainer = styled.div`
+	width: 100%;
+`
+
 export const TrailerImg = styled.img`
 	width: 100%;
 	height: inherit;
    object-fit: cover;
-	opacity: 0.18;
 	
 `
 export const IconPlayBox = styled.div`
 	position: absolute;
-	width: 72px;
-	height: 72px;
-	left: 152px;
+	left: 9.2em;
 	top: 113px;
 	mix-blend-mode: normal;
 	opacity: 0.75;
 `
-export const MovieTitle = styled.h2`
+export const HeartBox = styled.div`
+	position: relative;
+	top:-18rem;
+`
+export const IconChevronBox = styled.div`
+	position: relative;
+	left: -10.8em;
+	top: -10.7rem;
+`
+export const BackButton = styled.button`
+	border: none;
+	position: relative;
+	top: -17.5rem;
+	left: -11.5em;
+	font-family: 'GilroyLight';
+	background-color: transparent;
+	color: #FFFFFF;
+	opacity: 0.5;
+`
+export const Score = styled.div`
+	font-family:'GilroyBold';
+	font-size: 12px;
+	padding: 0.4em 0.2em;
 	position: absolute;
-	width: 343px;
-	height: 80px;
 	left: calc(50% - 343px/2);
-	top: 13rem;
+	top: 16em;
+	background: #191926;
+	opacity: 0.9;
+	border: 1px solid #191926;
+	box-sizing: border-box;
+	border-radius: 5px;
+	color: white;
+`
+export const MovieTitle = styled.h2`
+	position: relative;
+	left: calc(50% - 343px/2);
+	top: -6.6rem;
 	font-family: 'GilroyBold';
 	font-size: 40px;
 	line-height: 40px;
 	display: flex;
+	text-align: left;
 	align-items: center;
-	letter-spacing: -0.5px;
 `
 export const StoryLineContainer = styled.div`
 	font-size: 14px;
@@ -47,18 +80,16 @@ export const StoryLineContainer = styled.div`
 `
 export const StoryLineTitle = styled.p`
 	font-family: 'GilroyBold';
-	position: absolute;
-	width: 343px;
+	position: relative;
 	left: calc(50% - 343px/2);
-	top: 340px;
-	display: flex;
+	top: -8rem;
+	text-align: left;
 	align-items: center;
 `
 export const StoryLine = styled.div`
-	position: absolute;
-	display: flex;
+	position: relative;
 	left: calc(50% - 343px/2);
-	top: 23.5rem;
+	top: -8.5rem;
 	text-align: left;
 	mix-blend-mode: normal;
 	opacity: 0.75;
@@ -69,20 +100,16 @@ export const StoryLine = styled.div`
 	margin-bottom: 1.5rem;
 `
 export const StarsBox = styled.span`
-	position: absolute;
+	position: relative;
 	left: calc(50% - 343px/2);
-	right: 0%;
-	top: 55.5%;
-	bottom: 0%;
+	top: -7rem;
+	bottom: 50%;
 	display: flex;
 `
 export const GenreMovieDetailsText = styled.p`
-	position: absolute;
-	width: 343px;
-	height: 20px;
+	position: relative;
+	top: -10.2rem;
 	left: calc(50% - 343px/2);
-	top: calc(51% - 20px/2);
-
 	font-style: normal;
 	font-weight: 300;
 	font-size: 14px;
@@ -93,15 +120,11 @@ export const GenreMovieDetailsText = styled.p`
 	color: #FF3466;
 `
 export const CastTitle = styled.div`
-	position: absolute;
+	position: relative;
 	left: calc(50% - 343px/2);
-	width: 243px;
-	height: 24px;
-	top: 455px;
-	display: flex;
+	top: -8rem;
+	text-align: left;
 	font-family: 'GilroyBold';
-	font-style: normal;
-	font-weight: 800;
 	font-size: 14px;
 	line-height: 20px;
 	align-items: center;

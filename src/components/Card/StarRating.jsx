@@ -1,4 +1,3 @@
-import React from 'react'
 import { BsStarHalf, BsStar, BsStarFill } from 'react-icons/bs';
 
 export const StarRating = ({score=5, size}) => {

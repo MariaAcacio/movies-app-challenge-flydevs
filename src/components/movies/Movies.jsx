@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import Card from '../Card/Card'
-import { useEffect, useState, useContext } from 'react'
+import Card from '../Card/Card';
+import { useContext } from 'react';
 import { GlobalContext } from "../../App";
-import styled from '@emotion/styled'
-import SearchingBar from '../searchingBar/SearchingBar'
-import Spinner from '../spinner/Spinner'
+import styled from '@emotion/styled';
+import SearchingBar from '../searchingBar/SearchingBar';
+import Spinner from '../spinner/Spinner';
 import ErrorMessage from "../errorMessage/ErrorMessage";
 
 const MoviesContainer = styled.div`
@@ -15,7 +15,7 @@ const MoviesContainer = styled.div`
 
 
 const Movies = ({ isLiked, setIsLiked }) => {
-	const {isLoading, moviesData, movieGenres} = useContext(GlobalContext)
+	const {isLoading, moviesData, movieGenres} = useContext(GlobalContext);
 
   return (
 	  <MoviesContainer className='movies'>
@@ -45,4 +45,4 @@ const Movies = ({ isLiked, setIsLiked }) => {
   )
 }
 
-export default Movies
+export default Movies;
