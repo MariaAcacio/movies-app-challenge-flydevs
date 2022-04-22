@@ -49,7 +49,7 @@ const Card = ({
 						size='7px'
 					/>
 				</SpanStars>
-				{`${reviews} reviews`}
+				{`${parseInt(reviews)} reviews`}
 			</Reviews>
 			<MoviesName>{name}</MoviesName>
 			<MoviesDuration>{`${duration} min`}</MoviesDuration>

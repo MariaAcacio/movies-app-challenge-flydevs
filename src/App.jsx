@@ -1,7 +1,6 @@
 import React, { useState, createContext, useEffect } from 'react';
 import { BrowserRouter, Routes, Route }from 'react-router-dom';
 import ActorBio from './components/actorBio/ActorBio';
-import Favorites from './components/favorites/Favorites';
 import MovieDetails from './components/movieDetails/MovieDetails';
 import Movies from './components/movies/Movies';
 import { fetchDataFromApi } from './tools/ApiCalls';
@@ -46,7 +45,6 @@ function App() {
 						<Route path='/movies' element={<Movies />} />
 						<Route path='/movies/:id' element={<MovieDetails />} />
 						<Route path='/actorbio/:id' element={<ActorBio />} />
-						<Route path='/favorites' element={<Favorites />} />
 					</Routes>
 				</GlobalContext.Provider>
       </div>

@@ -9,7 +9,7 @@ import HeartIcon from '../heartIcon/HeartIcon';
 import { IMG_HALF_PATH_W500, IMG_UNAVAILABLE } from '../../tools/imgPaths';
 import { StarRating } from '../Card/StarRating';
 import Spinner from '../spinner/Spinner';
-import Cast from '../cast/Cast';
+import CastCard from '../castCard/CastCard';
 import { fetchDataFromApi } from '../../tools/ApiCalls';
 import {
 	MovieDetailsContainer,
@@ -26,15 +26,20 @@ import {
 	HeartBox,
 	BackButton,
 	IconChevronBox,
-	Score
+	Score,
+	ReviewsText,
+	CastingContainer,
+	SeeAll
 } from './MovieDetails.elements'
+import ErrorMessage from '../errorMessage/ErrorMessage';
 
 
 const MovieDetails = () => {
 	const {id} = useParams();
 	const [details, setDetails] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
-	const [Cast, setCast] = useState([]);
+	const [cast, setCast] = useState([]);
+	const [isShowingLess, setIsShowingLess] = useState(true);
 	const { moviesData, movieGenres} = useContext(GlobalContext);
 	let detailGenres = "";
 
@@ -47,7 +52,7 @@ const MovieDetails = () => {
 			const { result1: fetchedDetails, result2: fetchedCast } = await fetchDataFromApi(urlDetails, urlCast);
 			
 			setDetails(fetchedDetails);
-			setCast(fetchedCast);
+			setCast(fetchedCast.cast);
 			setIsLoading(false);
 		}
 		getGlobalDetailsData();
@@ -91,6 +96,7 @@ const MovieDetails = () => {
 						<Score>{`+${details.vote_average}`}</Score>
 					</MovieDetailsContainer>
 					<MovieTitle className="movie-title">{details.title}</MovieTitle>
+					<ReviewsText>{`${parseInt(details.popularity)} reviews`}</ReviewsText>
 					<StarsBox>
 						<StarRating 
 							score={details.vote_average}
@@ -102,10 +108,27 @@ const MovieDetails = () => {
 						<StoryLineTitle>Storyline</StoryLineTitle>
 						<StoryLine>{details.overview}</StoryLine>
 					</StoryLineContainer>
+
 					<CastTitle>Cast</CastTitle>
-					{/* <Cast/> */}
+					<SeeAll onClick={()=> setIsShowingLess(!isShowingLess)}>
+						{ isShowingLess?`See All` : 'Show Less'}
+					</SeeAll>
+					<CastingContainer>
+							{cast?.length > 0 ? cast.map((castInfo) => 
+								<CastCard
+									key = {castInfo.id}
+									path ={castInfo.profile_path}
+									name={castInfo.original_name}
+									id={castInfo.id}
+								/>).filter((elm,index, elmArray)=> {
+										const numberElementsShown = isShowingLess? 8 : elmArray.length;							
+										return index < numberElementsShown;
+									}) 
+							: <ErrorMessage/>}
+					</CastingContainer>
+					<CastCard/>
 				</>)
-				: <p> Errito </p>
+				: <ErrorMessage/>
 			}
 		</>
    )

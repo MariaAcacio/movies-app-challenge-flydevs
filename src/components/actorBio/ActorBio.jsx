@@ -1,9 +1,15 @@
-import React from 'react'
+import { useNavigate } from "react-router-dom"
 
 const ActorBio = () => {
+	const navigate = useNavigate();
   return (
 	 <div>
-		<h2>I'm in actorBio</h2>
+		<h2> | - ActorBio - | </h2>
+		<h3> Site in construction </h3>
+		<h5> This content is currently unavailable </h5>
+		<button onClick={()=>(navigate(`/movies`))}> 
+			Go back to movies 
+		</button>
 	 </div>
   )
 }

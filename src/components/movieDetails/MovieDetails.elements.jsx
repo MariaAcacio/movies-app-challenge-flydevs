@@ -106,6 +106,21 @@ export const StarsBox = styled.span`
 	bottom: 50%;
 	display: flex;
 `
+export const ReviewsText = styled.div`
+	position: relative;
+	/* height: 170px; */
+	left: 5rem;
+	top: -6.2rem;
+	font-family: 'GilroyBold';
+	font-style: normal;
+	font-weight: 800;
+	font-size: 18px;
+	line-height: 12px;
+	display: flex;
+	align-items: center;
+	text-transform: uppercase;
+	color: #6D6D80;
+`
 export const GenreMovieDetailsText = styled.p`
 	position: relative;
 	top: -10.2rem;
@@ -129,4 +144,25 @@ export const CastTitle = styled.div`
 	line-height: 20px;
 	align-items: center;
 	text-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+`
+export const CastingContainer = styled.div`
+	position: relative;
+	top: -6rem;
+	 display: flex;
+	 gap:4px;
+	 left: calc(50% - 343px/2);
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    overflow-y: hidden;
+	 width: 100%;
+`
+export const SeeAll = styled.button`
+	border: none;
+	position: relative;
+	top: -9.3rem;
+	left: 11.5em;
+	font-family: 'GilroyLight';
+	background-color: transparent;
+	color: #FFFFFF;
+	opacity: 0.5;
 `
