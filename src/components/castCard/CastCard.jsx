@@ -13,7 +13,6 @@ import {
 
  const CastCard = ({ path, name, id }) => {
 	 let navigate = useNavigate();
-	 console.log(id);
   return (
 		<CastBox onClick={()=>(navigate(`/actorbio/${id}`))}>
 			<ActorCard>

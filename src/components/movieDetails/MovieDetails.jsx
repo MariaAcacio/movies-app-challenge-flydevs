@@ -40,7 +40,7 @@ const MovieDetails = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [cast, setCast] = useState([]);
 	const [isShowingLess, setIsShowingLess] = useState(true);
-	const { moviesData, movieGenres} = useContext(GlobalContext);
+	const {movieGenres} = useContext(GlobalContext);
 	let detailGenres = "";
 
 	useEffect(() => {
@@ -122,7 +122,6 @@ const MovieDetails = () => {
 									id={castInfo.id}
 								/>).filter((elm,index, elmArray)=> {
 										const numberElementsShown = isShowingLess? 8 : elmArray.length;							
-										console.log(elmArray);
 										return index < numberElementsShown;
 									}) 
 							: <ErrorMessage/>}

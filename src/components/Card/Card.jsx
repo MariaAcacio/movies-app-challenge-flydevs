@@ -27,7 +27,7 @@ const Card = ({
 	genresList, 
 }) => {
 	
-	const movieGendes= getMovieGenres(genresIds, genresList);
+	const movieGenres= getMovieGenres(genresIds, genresList);
 	let navigate = useNavigate();
 
 	const handleClick = (evnt) => {
@@ -41,7 +41,7 @@ const Card = ({
 			<HeartIcon id={id} />
 			<Image src={poster ? `${IMG_HALF_PATH_W154}/${poster}`: IMG_UNAVAILABLE } alt="testImage" />
 			<Rating>{`+${score}`}</Rating>
-			<GenreMovieText>{movieGendes}</GenreMovieText>
+			<GenreMovieText>{movieGenres}</GenreMovieText>
 			<Reviews>
 				<SpanStars>
 					<StarRating 
