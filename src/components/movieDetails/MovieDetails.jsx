@@ -83,7 +83,7 @@ const MovieDetails = () => {
 						<HeartBox>
 							<HeartIcon id={parseInt(id)} />
 						</HeartBox>
-						<BackButton isShoingBackText/>
+						<BackButton isShowingBackText/>
 						<Score>{`+${details.vote_average}`}</Score>
 					</MovieDetailsContainer>
 					<MovieTitle className="movie-title">{details.title}</MovieTitle>

@@ -6,7 +6,6 @@ const ButtonContainer = styled.div`
 	position: absolute;
 	top: 1.4rem;
 	left: 1rem;
-	/* border: 1px solid yellow; */
 `
 const ChevronContainer = styled.span`
 	position: relative;
@@ -33,9 +32,9 @@ export const BackButton = ({ isShowingBackText }) => {
 							size='15px'
 						/>
 					</ChevronContainer>
-					<Back>Back</Back>
+					{ isShowingBackText && <Back>Back</Back> }
+					
 				</Link>
-				
 			</ButtonContainer>
 		</>
 	)
