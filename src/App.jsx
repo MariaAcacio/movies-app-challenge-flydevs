@@ -39,7 +39,7 @@ function App() {
 						isLoading, setIsLoading, 
 						moviesData, 
 						movieGenres, 
-						likesList, setLikesList
+						likesList, setLikesList,
 				}}>
 					<Routes>
 						<Route path='/' element={<Movies/>} />

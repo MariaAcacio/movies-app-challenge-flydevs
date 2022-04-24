@@ -17,13 +17,11 @@ const TitleContainer = styled.div`
 	text-align: center;
 	opacity: 0.75;
 	/* border: 1px solid green; */
-	
 `
 
 const FavoriteMovies = () => {
-	const {moviesData, movieGenres, likesList} = useContext(GlobalContext);	// Se traen las películas, la lista de géneros y la lista de Likes
-
-	const favoriteMovies = likesList.map(likedId => (				// Se filtran las películas según la lista de Likes.
+	const {moviesData, movieGenres, likesList} = useContext(GlobalContext);	
+	const favoriteMovies = likesList.map(likedId => (
 		moviesData.find(movie => movie.id === likedId)
 	));
 
@@ -32,7 +30,7 @@ const FavoriteMovies = () => {
 	  <TitleContainer>
 	  		Favorite Movies
 	  </TitleContainer>
-	  		<BackButton/>
+	  		<BackButton isShowingBackText={false}/>
 
 
 		{
@@ -49,10 +47,8 @@ const FavoriteMovies = () => {
 						id={movie.id}
 					/>
 			) 
-			: <ErrorMessage/>			/* Este componente debería ser dinámco para mostrar varios mensajes según corresponda */
-		} 											{/* En este caso el Mensaje debería ser "No tienes películas favoritas. Dale like a algunas" */}
-
-
+			: <ErrorMessage/>	
+		} 
 	  </MoviesContainer>
   )
 }

@@ -20,23 +20,25 @@ const Back = styled.button`
 	opacity: 0.5;
 `
 
-export const BackButton = () => {
-console.log('Hola');
-  return (
-	<ButtonContainer>
-		<ChevronContainer>
-			<BsChevronLeft 
-				color='#FFFFFF'
-				opacity='0.5'
-				size='15px'
-			/>
-		</ChevronContainer>
-		<Link to={`/movies`}>
-			<Back>Back</Back>
-		</Link>
-		
-	</ButtonContainer>
-  )
+export const BackButton = ({ isShowingBackText }) => {
+
+	return (
+		<>
+			<ButtonContainer>
+				<Link to={`/movies`}>
+					<ChevronContainer>
+						<BsChevronLeft 
+							color='#FFFFFF'
+							opacity='0.5'
+							size='15px'
+						/>
+					</ChevronContainer>
+					<Back>Back</Back>
+				</Link>
+				
+			</ButtonContainer>
+		</>
+	)
 }
 
 
