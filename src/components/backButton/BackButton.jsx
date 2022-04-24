@@ -4,9 +4,10 @@ import { BsChevronLeft } from 'react-icons/bs';
 
 const ButtonContainer = styled.div`
 	position: absolute;
-	top: 1.4rem;
+	top: ${({isShowingBackText}) => isShowingBackText ? "1.7rem" : "2.9rem"};
 	left: 1rem;
 `
+
 const ChevronContainer = styled.span`
 	position: relative;
 	top:0.15rem;
@@ -20,10 +21,9 @@ const Back = styled.button`
 `
 
 export const BackButton = ({ isShowingBackText }) => {
-
 	return (
 		<>
-			<ButtonContainer>
+			<ButtonContainer isShowingBackText={isShowingBackText}>
 				<Link to={`/movies`}>
 					<ChevronContainer>
 						<BsChevronLeft 
@@ -33,7 +33,6 @@ export const BackButton = ({ isShowingBackText }) => {
 						/>
 					</ChevronContainer>
 					{ isShowingBackText && <Back>Back</Back> }
-					
 				</Link>
 			</ButtonContainer>
 		</>
