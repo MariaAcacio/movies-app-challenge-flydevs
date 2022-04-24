@@ -2,7 +2,7 @@ import Card from '../Card/Card';
 import { useContext } from 'react';
 import { GlobalContext } from "../../App";
 import styled from '@emotion/styled';
-import ErrorMessage from "../errorMessage/ErrorMessage";
+import { ErrorMessage } from "../errorMessage/ErrorMessage";
 import { MoviesContainer } from './../movies/Movies.element'
 import { BackButton } from '../backButton/BackButton';
 
@@ -47,7 +47,7 @@ const FavoriteMovies = () => {
 						id={movie.id}
 					/>
 			) 
-			: <ErrorMessage/>	
+			: <ErrorMessage message = "You haven't added any movie to this section"/>	
 		} 
 	  </MoviesContainer>
   )

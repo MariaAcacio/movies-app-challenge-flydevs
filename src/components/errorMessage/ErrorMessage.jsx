@@ -1,11 +1,7 @@
-import React from 'react'
-
-const ErrorMessage = () => {
+export const ErrorMessage = ({ message= 'Error!! Movies not found :('}) => {
   return (
 	 <div>
-		<h1>Error!! Movies not found :(</h1>
+		<h1>{message}</h1>
 	 </div>
   )
 }
-
-export default ErrorMessage

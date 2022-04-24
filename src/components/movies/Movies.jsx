@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { GlobalContext } from "../../App";
 import SearchingBar from '../searchingBar/SearchingBar';
 import Spinner from '../spinner/Spinner';
-import ErrorMessage from "../errorMessage/ErrorMessage";
+import { ErrorMessage } from "../errorMessage/ErrorMessage";
 import { Link } from 'react-router-dom';
 import { MoviesContainer, FavoritesButton, FavButtonContainer  } from './Movies.element'
 
@@ -22,8 +22,8 @@ const Movies = () => {
 				</Link>
 			</FavButtonContainer>
 			{isLoading && <Spinner/>}
-			{
-				moviesData?.length > 0 ? moviesData.map((movie) => 
+			{!isLoading && (
+					moviesData?.length > 0 ? moviesData.map((movie) => 
 						<Card 
 							key={movie.id}
 							name={movie.title}
@@ -36,7 +36,7 @@ const Movies = () => {
 							id={movie.id}
 						/>
 				) 
-				: <ErrorMessage/>
+				:<ErrorMessage/>)
 			} 
 		</MoviesContainer>
 	</>

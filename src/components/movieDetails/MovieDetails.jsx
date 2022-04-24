@@ -30,7 +30,7 @@ import {
 	CastingContainer,
 	SeeAll
 } from './MovieDetails.elements'
-import ErrorMessage from '../errorMessage/ErrorMessage';
+import { ErrorMessage } from '../errorMessage/ErrorMessage';
 
 
 const MovieDetails = () => {
@@ -115,10 +115,10 @@ const MovieDetails = () => {
 										const numberElementsShown = isShowingLess? 8 : elmArray.length;							
 										return index < numberElementsShown;
 									}) 
-							: <ErrorMessage/>}
+							: <ErrorMessage message="Error! Movie details not found"/>}
 					</CastingContainer>
 				</>)
-				: <ErrorMessage/>
+				: <ErrorMessage message="Error! We haven't found the cast of the movie"/>
 			}
 		</>
    )
