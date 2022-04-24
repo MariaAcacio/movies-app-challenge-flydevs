@@ -33,21 +33,21 @@ export const HeartBox = styled.div`
 	position: relative;
 	top:-18rem;
 `
-export const IconChevronBox = styled.div`
-	position: relative;
-	left: -10.8em;
-	top: -10.7rem;
-`
-export const BackButton = styled.button`
-	border: none;
-	position: relative;
-	top: -17.5rem;
-	left: -11.5em;
-	font-family: 'GilroyLight';
-	background-color: transparent;
-	color: #FFFFFF;
-	opacity: 0.5;
-`
+// export const IconChevronBox = styled.div`
+// 	position: relative;
+// 	left: -10.8em;
+// 	top: -10.7rem;
+// `
+// export const BackButton = styled.button`
+// 	border: none;
+// 	position: relative;
+// 	top: -17.5rem;
+// 	left: -11.5em;
+// 	font-family: 'GilroyLight';
+// 	background-color: transparent;
+// 	color: #FFFFFF;
+// 	opacity: 0.5;
+// `
 export const Score = styled.div`
 	font-family:'GilroyBold';
 	font-size: 12px;

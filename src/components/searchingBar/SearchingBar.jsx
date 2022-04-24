@@ -4,7 +4,8 @@ import { FiSearch } from 'react-icons/fi'
 const Bar = styled.div`
 	padding: 62px;
 	width: 100%;
-	/* position: relative; */
+	position: relative;
+	right: 0.9rem;
 	
 `
 const InputSearch = styled.input`

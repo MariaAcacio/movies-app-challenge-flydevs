@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route }from 'react-router-dom';
 import ActorBio from './components/actorBio/ActorBio';
 import MovieDetails from './components/movieDetails/MovieDetails';
 import Movies from './components/movies/Movies';
+import FavoritesMovies from './components/favoriteMovies/FavoriteMovies';
 import { fetchDataFromApi } from './tools/ApiCalls';
 import './App.css';
 
@@ -45,6 +46,7 @@ function App() {
 						<Route path='/movies' element={<Movies />} />
 						<Route path='/movies/:id' element={<MovieDetails />} />
 						<Route path='/actorbio/:id' element={<ActorBio />} />
+						<Route path='/favorites' element={<FavoritesMovies />} />
 					</Routes>
 				</GlobalContext.Provider>
       </div>

@@ -2,15 +2,16 @@ import { useEffect, useState, useContext } from 'react'
 import { GlobalContext } from '../../App';
 import {  useParams } from 'react-router-dom';
 import { getMovieGenres } from '../../tools/getMovieGenres';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { AiFillPlayCircle } from 'react-icons/ai';
-import { BsChevronLeft } from 'react-icons/bs';
+// import { BsChevronLeft } from 'react-icons/bs';
 import HeartIcon from '../heartIcon/HeartIcon';
 import { IMG_HALF_PATH_W500, IMG_UNAVAILABLE } from '../../tools/imgPaths';
 import { StarRating } from '../Card/StarRating';
 import Spinner from '../spinner/Spinner';
 import CastCard from '../castCard/CastCard';
 import { fetchDataFromApi } from '../../tools/ApiCalls';
+import { BackButton } from './../backButton/BackButton';
 import {
 	MovieDetailsContainer,
 	EmptyContainer,
@@ -24,8 +25,6 @@ import {
 	GenreMovieDetailsText,
 	CastTitle,
 	HeartBox,
-	BackButton,
-	IconChevronBox,
 	Score,
 	ReviewsText,
 	CastingContainer,
@@ -80,19 +79,11 @@ const MovieDetails = () => {
 								color='#FFFFFF'
 								size='80px'
 							/>
-						<IconChevronBox>
-							<BsChevronLeft 
-								color='#FFFFFF'
-								size='15px'
-							/>
-						</IconChevronBox>
 						</IconPlayBox>
 						<HeartBox>
 							<HeartIcon id={parseInt(id)} />
 						</HeartBox>
-						<Link to={`/movies`}>
-							<BackButton>Back</BackButton>
-						</Link>
+						<BackButton/>
 						<Score>{`+${details.vote_average}`}</Score>
 					</MovieDetailsContainer>
 					<MovieTitle className="movie-title">{details.title}</MovieTitle>
