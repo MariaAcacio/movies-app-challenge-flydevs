@@ -26,13 +26,9 @@ const FavoriteMovies = () => {
 	));
 
 	return (
-	  <MoviesContainer>
-	  <TitleContainer>
-	  		Favorite Movies
-	  </TitleContainer>
-	  		<BackButton isShowingBackText={false}/>
-
-
+		<MoviesContainer>
+		<TitleContainer> Favorite Movies </TitleContainer>
+		<BackButton isShowingBackText={false}/>
 		{
 			 favoriteMovies.length > 0 ? favoriteMovies.map((movie) => 
 					<Card 
@@ -50,7 +46,7 @@ const FavoriteMovies = () => {
 			: <ErrorMessage message = "You haven't added any movie to this section"/>	
 		} 
 	  </MoviesContainer>
-  )
+	)
 }
 
 export default FavoriteMovies;

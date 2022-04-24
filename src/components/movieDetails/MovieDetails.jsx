@@ -2,9 +2,7 @@ import { useEffect, useState, useContext } from 'react'
 import { GlobalContext } from '../../App';
 import {  useParams } from 'react-router-dom';
 import { getMovieGenres } from '../../tools/getMovieGenres';
-// import { Link } from "react-router-dom";
 import { AiFillPlayCircle } from 'react-icons/ai';
-// import { BsChevronLeft } from 'react-icons/bs';
 import HeartIcon from '../heartIcon/HeartIcon';
 import { IMG_HALF_PATH_W500, IMG_UNAVAILABLE } from '../../tools/imgPaths';
 import { StarRating } from '../Card/StarRating';
@@ -25,13 +23,12 @@ import {
 	GenreMovieDetailsText,
 	CastTitle,
 	HeartBox,
-	Score,
 	ReviewsText,
 	CastingContainer,
 	SeeAll
 } from './MovieDetails.elements'
 import { ErrorMessage } from '../errorMessage/ErrorMessage';
-
+import { Rating } from '../rating/Rating';
 
 const MovieDetails = () => {
 	const {id} = useParams();
@@ -84,7 +81,7 @@ const MovieDetails = () => {
 							<HeartIcon id={parseInt(id)} />
 						</HeartBox>
 						<BackButton isShowingBackText/>
-						<Score>{`+${details.vote_average}`}</Score>
+						<Rating score={details.vote_average} isShowingCard={false}/>
 					</MovieDetailsContainer>
 					<MovieTitle className="movie-title">{details.title}</MovieTitle>
 					<ReviewsText>{`${parseInt(details.popularity)} reviews`}</ReviewsText>
@@ -117,8 +114,8 @@ const MovieDetails = () => {
 									}) 
 							: <ErrorMessage message="Error! Movie details not found"/>}
 					</CastingContainer>
-				</>)
-				: <ErrorMessage message="Error! We haven't found the cast of the movie"/>
+				</>
+				) : <ErrorMessage message="Error! We haven't found the cast of the movie"/>
 			}
 		</>
    )

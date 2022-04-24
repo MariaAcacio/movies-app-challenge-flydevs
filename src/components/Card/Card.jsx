@@ -5,8 +5,7 @@ import { IMG_HALF_PATH_W154, IMG_UNAVAILABLE } from '../../tools/imgPaths';
 import { getMovieGenres } from '../../tools/getMovieGenres';
 import { 
 	Image, 
-	Poster,  
-	Rating, 
+	Poster,   
 	EmptyGradientCard, 
 	GenreMovieText, 
 	Reviews, 
@@ -14,7 +13,7 @@ import {
 	MoviesDuration,
 	SpanStars
 } from './Card.elements';
-
+import { Rating } from '../rating/Rating';
 
 const Card = ({ 
 	name,
@@ -25,8 +24,7 @@ const Card = ({
 	score, 
 	poster, 
 	genresList, 
-}) => {
-	
+}) => {	
 	const movieGenres= getMovieGenres(genresIds, genresList);
 	let navigate = useNavigate();
 
@@ -40,7 +38,7 @@ const Card = ({
 			<EmptyGradientCard></EmptyGradientCard>
 			<HeartIcon id={id} />
 			<Image src={poster ? `${IMG_HALF_PATH_W154}/${poster}`: IMG_UNAVAILABLE } alt="testImage" />
-			<Rating>{`+${score}`}</Rating>
+			<Rating score={score} isShowingCard/>
 			<GenreMovieText>{movieGenres}</GenreMovieText>
 			<Reviews>
 				<SpanStars>
@@ -59,4 +57,3 @@ const Card = ({
 }
 
 export default Card;
-

@@ -7,6 +7,7 @@ export const Image = styled.img`
 	flex-wrap: wrap;
 	border-radius:2px ;
 `
+
 export const Poster = styled.div`
 	background: radial-gradient(73.32% 73.32% at 23.55% 26.12%, rgba(64, 64, 86, 0.546214) 0%, rgba(34, 34, 50, 0.55) 100%);
 	height: 296px;
@@ -17,34 +18,20 @@ export const Poster = styled.div`
 	border:1px solid  rgba(95, 95, 117, 0.346);
 	overflow: hidden;
 	position: relative;
-
 `
 export const HeartBox = styled.div`
 	position: absolute;
 	top:12px;
 	right: 5px;
-	
 ` 
-export const Rating = styled.div`
-	font-family:'GilroyBold';
-	font-size: 12px;
-	padding: 0.4em 0.2em;
-	position: absolute;
-	left: 6px;
-	top: 10px;
-	background: #191926;
-	opacity: 0.9;
-	border: 1px solid #191926;
-	box-sizing: border-box;
-	border-radius: 5px;
-	color: white;
-`
+
 export const EmptyGradientCard = styled.div`
 	width: 100%;
    height: 100%;
    position: absolute;
    background: linear-gradient(180deg, rgba(25, 25, 38, 0.0001) 22.31%, #191926 87.5%);
 `
+
 export const GenreMovieText = styled.p`
 	position: absolute;
 	width: 146px;
@@ -58,7 +45,8 @@ export const GenreMovieText = styled.p`
 	display: flex;
 	align-items: center;
 	color: #FF3466;
-` 
+`
+
 export const Reviews = styled.div`
 
 	position: absolute;
@@ -76,12 +64,13 @@ export const Reviews = styled.div`
 	color: #6D6D80;
 
 `
+
 export const MoviesName = styled.div`
-	position: absolute;
+	position: relative;
 	width: 154px;
 	height: 265px;
 	left: calc(50% - 154px/2);
-	top: calc(50% - 20px/2 - 6px);
+	top:-7.3rem;
 	font-family: 'GilroyBold';
 	font-style: normal;
 	font-weight: 800;
@@ -93,14 +82,13 @@ export const MoviesName = styled.div`
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
-	
 `
+
 export const MoviesDuration = styled.div`
-	position: absolute;
-	width: 154px;
-	height: 250px;
+	position: relative;
 	left: calc(50% - 154px/2);
-	top: calc(50% - 12px/2 + 10px);
+	/* top: calc(50% - 12px/2 + 10px); */
+	top: -5rem;
 	font-family: 'GilroyBold';
 	font-style: normal;
 	font-weight: 800;
@@ -110,7 +98,9 @@ export const MoviesDuration = styled.div`
 	align-items: center;
 	text-transform: uppercase;
 	color: #565665;
+	border: 1px solid yellow;
 `
+
 export const SpanStars = styled.span`
 	margin-right: 5px;
 `
