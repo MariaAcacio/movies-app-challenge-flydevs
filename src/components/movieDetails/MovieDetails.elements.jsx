@@ -84,10 +84,12 @@ export const StarsBox = styled.span`
 	left: calc(50% - 343px/2);
 	top: -7rem;
 	bottom: 50%;
+	width: 25%;
 	display: flex;
 `
 export const ReviewsContainer = styled.div`
 	position: relative;
+	width: 40%;
 	left: 6.5rem;
 	top: -6.1rem;
 `
@@ -116,7 +118,6 @@ export const GenreMovieDetailsText = styled.p`
 	line-height: 20px;
 	display: flex;
 	align-items: center;
-
 	color: #FF3466;
 `
 
