@@ -87,9 +87,9 @@ export const StarsBox = styled.span`
 	display: flex;
 `
 export const ReviewsContainer = styled.div`
-	position: absolute;
-	left: 6rem;
-	top: 18.8rem;
+	position: relative;
+	left: 6.5rem;
+	top: -6.1rem;
 `
 
 export const ReviewsText = styled.div`
