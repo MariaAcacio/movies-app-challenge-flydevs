@@ -35,16 +35,18 @@ export const EmptyGradientCard = styled.div`
 export const GenreMovieText = styled.p`
 	position: absolute;
 	width: 146px;
-	height: 1px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 	left: calc(50% - 146px/2 - 4px);
-	top: calc(50% - 12px/2 + 72px);
+	top: calc(50% - 12px/2 + 66px);
 	font-family: 'GilroyLight';
-	font-weight: 100;
 	font-size: 8px;
 	line-height: 12px;
 	display: flex;
 	align-items: center;
 	color: #FF3466;
+	/* border: 1px solid yellow; */
 `
 
 export const Reviews = styled.div`
@@ -75,20 +77,21 @@ export const MoviesName = styled.div`
 	font-style: normal;
 	font-weight: 800;
 	font-size: 14px;
-	line-height: 20px;
+	line-height: 14px;
+	text-align: left;
 	display: flex;
 	align-items: center;
 	background: linear-gradient(152.39deg, #ECECEC 25.4%, #C4C4C4 52.32%, #FFFFFF 82.83%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
+
 `
 
 export const MoviesDuration = styled.div`
-	position: relative;
+	position: absolute;
 	left: calc(50% - 154px/2);
-	/* top: calc(50% - 12px/2 + 10px); */
-	top: -5rem;
+	top: 17rem;
 	font-family: 'GilroyBold';
 	font-style: normal;
 	font-weight: 800;
@@ -98,7 +101,6 @@ export const MoviesDuration = styled.div`
 	align-items: center;
 	text-transform: uppercase;
 	color: #565665;
-	border: 1px solid yellow;
 `
 
 export const SpanStars = styled.span`

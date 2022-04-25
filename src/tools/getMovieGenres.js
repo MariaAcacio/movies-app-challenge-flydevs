@@ -4,5 +4,5 @@ export const getMovieGenres = (genresIds, genresList) => {
 			return genresList.find(genre => (genre.id === movieGenreId));
 		});
 		
-		return preFilteredGenres.map(genre => genre.name).join(", ");
+		return preFilteredGenres.map(genre => genre?.name).join(", ");
 	}

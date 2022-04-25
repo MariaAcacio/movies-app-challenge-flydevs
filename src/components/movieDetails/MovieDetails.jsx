@@ -25,7 +25,8 @@ import {
 	HeartBox,
 	ReviewsText,
 	CastingContainer,
-	SeeAll
+	SeeAll,
+	ReviewsContainer
 } from './MovieDetails.elements'
 import { ErrorMessage } from '../errorMessage/ErrorMessage';
 import { Rating } from '../rating/Rating';
@@ -63,7 +64,7 @@ const MovieDetails = () => {
    return (
 		<>
 			{ isLoading && <Spinner/>}
-			{ details ? (
+			{ details ? (	
 				<>
 					<MovieDetailsContainer>
 						<EmptyContainer></EmptyContainer>
@@ -84,7 +85,9 @@ const MovieDetails = () => {
 						<Rating score={details.vote_average} isShowingCard={false}/>
 					</MovieDetailsContainer>
 					<MovieTitle className="movie-title">{details.title}</MovieTitle>
-					<ReviewsText>{`${parseInt(details.popularity)} reviews`}</ReviewsText>
+					<ReviewsContainer>
+						<ReviewsText>{`${parseInt(details.popularity)} reviews`}</ReviewsText>
+					</ReviewsContainer>
 					<StarsBox>
 						<StarRating 
 							score={details.vote_average}

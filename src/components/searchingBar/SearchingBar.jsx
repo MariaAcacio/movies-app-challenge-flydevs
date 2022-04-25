@@ -16,7 +16,7 @@ const InputSearch = styled.input`
 	position: absolute;
 	width: 375px;
 	height: 40px;
-	left: 0px;
+	left: -8px;
 	top: 44px;
 	
 `

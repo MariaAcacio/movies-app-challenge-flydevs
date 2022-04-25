@@ -27,14 +27,15 @@ export const TrailerImg = styled.img`
 
 export const IconPlayBox = styled.div`
 	position: absolute;
-	left: 9.2em;
-	top: 113px;
+	left: 9rem;
+	top: 6rem;
 	mix-blend-mode: normal;
 	opacity: 0.75;
 `
 export const HeartBox = styled.div`
 	position: relative;
 	top:-18rem;
+	right: 0.6rem;
 `
 
 export const MovieTitle = styled.h2`
@@ -85,12 +86,15 @@ export const StarsBox = styled.span`
 	bottom: 50%;
 	display: flex;
 `
+export const ReviewsContainer = styled.div`
+	position: absolute;
+	left: 6rem;
+	top: 18.8rem;
+`
 
 export const ReviewsText = styled.div`
-	position: relative;
-	/* height: 170px; */
-	left: 5rem;
-	top: -6.2rem;
+	top: -6.3rem;
+	text-align: center;
 	font-family: 'GilroyBold';
 	font-style: normal;
 	font-weight: 800;
@@ -132,8 +136,8 @@ export const CastingContainer = styled.div`
 	position: relative;
 	top: -6rem;
 	 display: flex;
-	 gap:4px;
-	 left: calc(50% - 343px/2);
+	 gap:3px;
+	 /* left: calc(50% - 343px/2); */
     flex-wrap: wrap;
     justify-content: flex-start;
     overflow-y: hidden;
@@ -144,7 +148,7 @@ export const SeeAll = styled.button`
 	border: none;
 	position: relative;
 	top: -9.3rem;
-	left: 11.5em;
+	left: 10.7em;
 	font-family: 'GilroyLight';
 	background-color: transparent;
 	color: #FFFFFF;
