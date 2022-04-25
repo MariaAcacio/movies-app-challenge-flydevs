@@ -13,7 +13,6 @@ const RatingBox = styled.div`
 	border: 1px solid #191926;
 	box-sizing: border-box;
 	border-radius: 5px;
-	color: white;
 `
 
 export const Rating = ({score, isShowingCard}) => {

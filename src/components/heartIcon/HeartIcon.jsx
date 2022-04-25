@@ -26,7 +26,7 @@ const HeartIcon = ({ id }) => {
 	return (
 	 <HeartBox>
 		<FaHeart 
-			color={isLiked ? '#FF4D79' : '#FFF'}
+			color={isLiked ? '#FF4D79' : '#eee'}
 			onClick={handleClick}
 		/>
 	 </HeartBox>

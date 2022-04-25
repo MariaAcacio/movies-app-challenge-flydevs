@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 import { MoviesContainer, FavoritesButton, FavButtonContainer  } from './Movies.element'
 
 
-
 const Movies = () => {
 	const {isLoading, moviesData, movieGenres} = useContext(GlobalContext);
 

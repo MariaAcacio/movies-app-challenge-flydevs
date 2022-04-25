@@ -16,7 +16,6 @@ const TitleContainer = styled.div`
 	font-size: 22px;
 	text-align: center;
 	opacity: 0.75;
-	/* border: 1px solid green; */
 `
 
 const FavoriteMovies = () => {
@@ -43,7 +42,7 @@ const FavoriteMovies = () => {
 						id={movie.id}
 					/>
 			) 
-			: <ErrorMessage message = "You haven't added any movie to this section"/>	
+			: <ErrorMessage message = "You haven't added movies to this section"/>	
 		} 
 	  </MoviesContainer>
 	)

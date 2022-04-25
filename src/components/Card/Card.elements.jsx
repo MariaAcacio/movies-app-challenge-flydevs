@@ -9,7 +9,11 @@ export const Image = styled.img`
 `
 
 export const Poster = styled.div`
-	background: radial-gradient(73.32% 73.32% at 23.55% 26.12%, rgba(64, 64, 86, 0.546214) 0%, rgba(34, 34, 50, 0.55) 100%);
+	background: radial-gradient(
+		73.32% 73.32% at 23.55% 26.12%, 
+		rgba(64, 64, 86, 0.546214) 0%, 
+		rgba(34, 34, 50, 0.55) 100%
+	);
 	height: 296px;
 	padding: 0.5px;
 	box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.5);
@@ -46,7 +50,6 @@ export const GenreMovieText = styled.p`
 	display: flex;
 	align-items: center;
 	color: #FF3466;
-	/* border: 1px solid yellow; */
 `
 
 export const Reviews = styled.div`
@@ -94,7 +97,6 @@ export const MoviesDuration = styled.div`
 	top: 17rem;
 	font-family: 'GilroyBold';
 	font-style: normal;
-	font-weight: 800;
 	font-size: 8px;
 	line-height: 12px;
 	display: flex;

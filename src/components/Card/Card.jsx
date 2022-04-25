@@ -37,7 +37,7 @@ const Card = ({
 		<Poster>
 			<EmptyGradientCard></EmptyGradientCard>
 			<HeartIcon id={id} />
-			<Image src={poster ? `${IMG_HALF_PATH_W154}/${poster}`: IMG_UNAVAILABLE } alt="testImage" />
+			<Image src={poster ? `${IMG_HALF_PATH_W154}/${poster}`: IMG_UNAVAILABLE } alt="movieCover" />
 			<Rating score={score} isShowingCard/>
 			<GenreMovieText>{movieGenres}</GenreMovieText>
 			<Reviews>

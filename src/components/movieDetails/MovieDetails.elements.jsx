@@ -6,25 +6,21 @@ export const MovieDetailsContainer = styled.div`
 	height: 298px;
 	overflow: hidden;
 `
-
 export const EmptyContainer = styled.div`
 	width: 100%;
    height: inherit;
    position: absolute;
 	background: linear-gradient(180deg, rgba(25, 25, 38, 0.0001) -200%, #191926 92.15%);
 `
-
 export const ImgContainer = styled.div`
 	width: 100%;
 `
-
 export const TrailerImg = styled.img`
 	width: 100%;
 	height: inherit;
    object-fit: cover;
 	
 `
-
 export const IconPlayBox = styled.div`
 	position: absolute;
 	left: 9rem;
@@ -37,7 +33,6 @@ export const HeartBox = styled.div`
 	top:-18rem;
 	right: 0.6rem;
 `
-
 export const MovieTitle = styled.h2`
 	position: relative;
 	left: calc(50% - 343px/2);
@@ -49,13 +44,11 @@ export const MovieTitle = styled.h2`
 	text-align: left;
 	align-items: center;
 `
-
 export const StoryLineContainer = styled.div`
 	font-size: 14px;
 	line-height: 20px;
 	margin-bottom: 0.25rem;
 `
-
 export const StoryLineTitle = styled.p`
 	font-family: 'GilroyBold';
 	position: relative;
@@ -64,7 +57,6 @@ export const StoryLineTitle = styled.p`
 	text-align: left;
 	align-items: center;
 `
-
 export const StoryLine = styled.div`
 	position: relative;
 	left: calc(50% - 343px/2);
@@ -78,7 +70,6 @@ export const StoryLine = styled.div`
 	line-height: 20px;
 	margin-bottom: 1.5rem;
 `
-
 export const StarsBox = styled.span`
 	position: relative;
 	left: calc(50% - 343px/2);
@@ -93,7 +84,6 @@ export const ReviewsContainer = styled.div`
 	left: 6.5rem;
 	top: -6.1rem;
 `
-
 export const ReviewsText = styled.div`
 	top: -6.3rem;
 	text-align: center;
@@ -107,7 +97,6 @@ export const ReviewsText = styled.div`
 	text-transform: uppercase;
 	color: #6D6D80;
 `
-
 export const GenreMovieDetailsText = styled.p`
 	position: relative;
 	top: -10.2rem;
@@ -120,7 +109,6 @@ export const GenreMovieDetailsText = styled.p`
 	align-items: center;
 	color: #FF3466;
 `
-
 export const CastTitle = styled.div`
 	position: relative;
 	left: calc(50% - 343px/2);
@@ -132,19 +120,16 @@ export const CastTitle = styled.div`
 	align-items: center;
 	text-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
 `
-
 export const CastingContainer = styled.div`
 	position: relative;
 	top: -6rem;
 	 display: flex;
 	 gap:3px;
-	 /* left: calc(50% - 343px/2); */
     flex-wrap: wrap;
     justify-content: flex-start;
     overflow-y: hidden;
 	 width: 100%;
 `
-
 export const SeeAll = styled.button`
 	border: none;
 	position: relative;
