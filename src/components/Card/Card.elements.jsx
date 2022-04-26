@@ -35,62 +35,32 @@ export const EmptyGradientCard = styled.div`
    position: absolute;
    background: linear-gradient(180deg, rgba(25, 25, 38, 0.0001) 22.31%, #191926 87.5%);
 `
-
-export const GenreMovieText = styled.p`
-	position: absolute;
-	width: 146px;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	left: calc(50% - 146px/2 - 4px);
-	top: calc(50% - 12px/2 + 66px);
-	font-family: 'GilroyLight';
-	font-size: 8px;
-	line-height: 12px;
-	display: flex;
-	align-items: center;
-	color: #FF3466;
-`
-
-export const Reviews = styled.div`
-
-	position: absolute;
-	height: 170px;
-	left: 5px;
-	top: 150px;
-	font-family: 'GilroyBold';
-	font-style: normal;
-	font-weight: 800;
-	font-size: 7px;
-	line-height: 12px;
-	display: flex;
-	align-items: center;
-	text-transform: uppercase;
-	color: #6D6D80;
-
-`
-
-export const MoviesName = styled.div`
+export const GenreContainer = styled.div`
+	width: 150px;
+	height: 10px;
 	position: relative;
-	width: 154px;
-	height: 265px;
-	left: calc(50% - 154px/2);
-	top:-7.3rem;
-	font-family: 'GilroyBold';
-	font-style: normal;
-	font-weight: 800;
-	font-size: 14px;
-	line-height: 14px;
-	text-align: left;
-	display: flex;
-	align-items: center;
-	background: linear-gradient(152.39deg, #ECECEC 25.4%, #C4C4C4 52.32%, #FFFFFF 82.83%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-
+	top: -45px;
+	left: calc(50% - 146px/2 - 4px);
 `
 
+export const ReviewsContainer = styled.div`
+	position: absolute;
+	height: 20px;
+	width: 110px;
+	left: calc(50% - 146px/2 - 4px);
+	top: 222px;
+	font-size: 7px;
+	display: flex;
+	align-items: center;
+	color: #6D6D80;
+`
+export const MoviesNameContainer = styled.div`
+	width: 10rem;
+	height: 1rem;
+	position: relative;
+	top: -2rem;
+	left: calc(50% - 154px/2);
+`
 export const MoviesDuration = styled.div`
 	position: absolute;
 	left: calc(50% - 154px/2);

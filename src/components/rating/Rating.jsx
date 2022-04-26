@@ -7,7 +7,7 @@ const RatingBox = styled.div`
 	position: absolute;
 	top: 0.5rem;
 	left: ${({ isShowingCard })=> isShowingCard ? "0.4rem" : "calc(50% - 343px/2)"};
-	top: ${({ isShowingCard })=> isShowingCard ? "0.5rem" : "12rem"};
+	top: ${({ isShowingCard })=> isShowingCard ? "0.5rem" : "11.5rem"};
 	background: #191926;
 	opacity: 0.9;
 	border: 1px solid #191926;

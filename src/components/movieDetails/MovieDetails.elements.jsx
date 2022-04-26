@@ -33,16 +33,20 @@ export const HeartBox = styled.div`
 	top:-18rem;
 	right: 0.6rem;
 `
-export const MovieTitle = styled.h2`
-	position: relative;
+export const MovieTitleContainer = styled.div`
+	position:relative;
 	left: calc(50% - 343px/2);
-	top: -6.6rem;
-	font-family: 'GilroyBold';
-	font-size: 40px;
-	line-height: 40px;
+	bottom: 6rem;
 	display: flex;
-	text-align: left;
-	align-items: center;
+	width: 21rem;
+	height: 8rem;
+`
+export const GenreMovieDetailsContainer = styled.div`
+	position: relative;
+	bottom: 9.2rem;
+	width: 21rem;
+	left: calc(50% - 343px/2);
+	display: flex;
 `
 export const StoryLineContainer = styled.div`
 	font-size: 14px;
@@ -73,7 +77,7 @@ export const StoryLine = styled.div`
 export const StarsBox = styled.span`
 	position: relative;
 	left: calc(50% - 343px/2);
-	top: -7rem;
+	top: -6.2rem;
 	bottom: 50%;
 	width: 25%;
 	display: flex;
@@ -81,33 +85,8 @@ export const StarsBox = styled.span`
 export const ReviewsContainer = styled.div`
 	position: relative;
 	width: 40%;
-	left: 6.5rem;
-	top: -6.1rem;
-`
-export const ReviewsText = styled.div`
-	top: -6.3rem;
-	text-align: center;
-	font-family: 'GilroyBold';
-	font-style: normal;
-	font-weight: 800;
-	font-size: 18px;
-	line-height: 12px;
-	display: flex;
-	align-items: center;
-	text-transform: uppercase;
-	color: #6D6D80;
-`
-export const GenreMovieDetailsText = styled.p`
-	position: relative;
-	top: -10.2rem;
-	left: calc(50% - 343px/2);
-	font-style: normal;
-	font-weight: 300;
-	font-size: 14px;
-	line-height: 20px;
-	display: flex;
-	align-items: center;
-	color: #FF3466;
+	left: 6rem;
+	top: -5.3rem;
 `
 export const CastTitle = styled.div`
 	position: relative;

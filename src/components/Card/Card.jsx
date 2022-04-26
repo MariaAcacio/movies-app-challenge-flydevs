@@ -7,13 +7,16 @@ import {
 	Image, 
 	Poster,   
 	EmptyGradientCard, 
-	GenreMovieText, 
-	Reviews, 
-	MoviesName, 
+	ReviewsContainer, 
 	MoviesDuration,
-	SpanStars
+	SpanStars,
+	GenreContainer,
+	MoviesNameContainer
 } from './Card.elements';
 import { Rating } from '../rating/Rating';
+import { Reviews } from '../reviews/Reviews';
+import GenreMovieDetails from '../genreMovieDetails/GenreMovieDetails';
+import MovieName from '../movieName/MovieName';
 
 const Card = ({ 
 	name,
@@ -39,17 +42,21 @@ const Card = ({
 			<HeartIcon id={id} />
 			<Image src={poster ? `${IMG_HALF_PATH_W154}/${poster}`: IMG_UNAVAILABLE } alt="movieCover" />
 			<Rating score={score} isShowingCard/>
-			<GenreMovieText>{movieGenres}</GenreMovieText>
-			<Reviews>
+			<GenreContainer>
+				<GenreMovieDetails movieGenres={movieGenres} isSmallFontSize={true}/>
+			</GenreContainer>
+			<ReviewsContainer>
 				<SpanStars>
 					<StarRating 
 						score={score}
 						size='7px'
 					/>
 				</SpanStars>
-				{`${parseInt(reviews)} reviews`}
-			</Reviews>
-			<MoviesName>{name}</MoviesName>
+				<Reviews popularity={reviews} isReviewTextSize={true}/>
+			</ReviewsContainer>
+			<MoviesNameContainer>
+				<MovieName title={name} isSmallTitleSize ={true}/>
+			</MoviesNameContainer>
 			<MoviesDuration>{`${duration} min`}</MoviesDuration>
 		</Poster>
 	 </div>

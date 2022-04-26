@@ -15,21 +15,24 @@ import {
 	EmptyContainer,
 	TrailerImg,
 	IconPlayBox,
-	MovieTitle,
 	StoryLineContainer,
 	StoryLineTitle,
 	StoryLine,
 	StarsBox,
-	GenreMovieDetailsText,
 	CastTitle,
 	HeartBox,
-	ReviewsText,
 	CastingContainer,
 	SeeAll,
-	ReviewsContainer
+	ReviewsContainer,
+	MovieTitleContainer,
+	GenreMovieDetailsContainer
+
 } from './MovieDetails.elements'
 import { ErrorMessage } from '../errorMessage/ErrorMessage';
 import { Rating } from '../rating/Rating';
+import { Reviews } from '../reviews/Reviews';
+import GenreMovieDetails from '../genreMovieDetails/GenreMovieDetails';
+import MovieName from '../movieName/MovieName';
 
 const MovieDetails = () => {
 	const {id} = useParams();
@@ -84,9 +87,11 @@ const MovieDetails = () => {
 						<BackButton isShowingBackText/>
 						<Rating score={details.vote_average} isShowingCard={false}/>
 					</MovieDetailsContainer>
-					<MovieTitle className="movie-title">{details.title}</MovieTitle>
+					<MovieTitleContainer>
+						<MovieName title={details.title} isSmallTitleSize ={false}/>
+					</MovieTitleContainer>
 					<ReviewsContainer>
-						<ReviewsText>{`${parseInt(details.popularity)} reviews`}</ReviewsText>
+						<Reviews popularity={details.popularity} isReviewTextSize={false}/>
 					</ReviewsContainer>
 					<StarsBox>
 						<StarRating 
@@ -94,7 +99,9 @@ const MovieDetails = () => {
 							size='14px'
 						/>
 					</StarsBox>
-					<GenreMovieDetailsText>{detailGenres} </GenreMovieDetailsText>
+					<GenreMovieDetailsContainer>
+						<GenreMovieDetails movieGenres={detailGenres} isSmallFontSize={false}/>
+					</GenreMovieDetailsContainer>
 					<StoryLineContainer>
 						<StoryLineTitle>Storyline</StoryLineTitle>
 						<StoryLine>{details.overview}</StoryLine>
