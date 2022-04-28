@@ -7,7 +7,7 @@ const RatingBox = styled.div`
 	position: absolute;
 	top: 0.5rem;
 	left: ${({ isShowingCard })=> isShowingCard ? "0.4rem" : "calc(50% - 343px/2)"};
-	top: ${({ isShowingCard })=> isShowingCard ? "0.5rem" : "11.5rem"};
+	top: ${({ isShowingCard })=> isShowingCard ? "0.5rem" : "15rem"};
 	background: #191926;
 	opacity: 0.9;
 	border: 1px solid #191926;
@@ -15,10 +15,10 @@ const RatingBox = styled.div`
 	border-radius: 5px;
 `
 
-export const Rating = ({score, isShowingCard}) => {
+export const Rating = ({score=0, isShowingCard}) => {
   return (
 	 <RatingBox isShowingCard={isShowingCard}>
-		{`+${score}`}
+		{`${score}+`}
 	 </RatingBox>
   )
 }

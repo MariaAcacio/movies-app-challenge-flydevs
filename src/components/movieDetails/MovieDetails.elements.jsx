@@ -36,14 +36,15 @@ export const HeartBox = styled.div`
 export const MovieTitleContainer = styled.div`
 	position:relative;
 	left: calc(50% - 343px/2);
-	bottom: 6rem;
+	bottom: 4.5rem;
 	display: flex;
 	width: 21rem;
-	height: 8rem;
+	height: auto;
+	/* border: 1px solid yellow; */
 `
 export const GenreMovieDetailsContainer = styled.div`
 	position: relative;
-	bottom: 9.2rem;
+	bottom: 9.5rem;
 	width: 21rem;
 	left: calc(50% - 343px/2);
 	display: flex;

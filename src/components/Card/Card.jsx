@@ -52,10 +52,10 @@ const Card = ({
 						size='7px'
 					/>
 				</SpanStars>
-				<Reviews popularity={reviews} isReviewTextSize={true}/>
+				<Reviews popularity={reviews} isReviewTextSize/>
 			</ReviewsContainer>
 			<MoviesNameContainer>
-				<MovieName title={name} isSmallTitleSize ={true}/>
+				<MovieName title={name} isSmallTitleSize/>
 			</MoviesNameContainer>
 			<MoviesDuration>{`${duration} min`}</MoviesDuration>
 		</Poster>
