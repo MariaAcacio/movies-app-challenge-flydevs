@@ -30,7 +30,7 @@ export const EmptyCard = styled.div`
 export const HeartContainer = styled.div`
 	position: absolute;
 	top:0.02rem;
-	right: 165px;	
+	right: 178px;	
 `
 export const Genrebox = styled.div`
 	width: 150px;
