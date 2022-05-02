@@ -12,9 +12,7 @@ export const EmptyContainer = styled.div`
    position: absolute;
 	background: linear-gradient(180deg, rgba(25, 25, 38, 0.0001) -200%, #191926 92.15%);
 `
-export const ImgContainer = styled.div`
-	width: 100%;
-`
+
 export const TrailerImg = styled.img`
 	width: 100%;
 	height: inherit;

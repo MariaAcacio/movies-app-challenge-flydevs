@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from '@emotion/styled';
 import { BsChevronLeft } from 'react-icons/bs';
+import {  useParams, useNavigate } from 'react-router-dom';
 
 const ButtonContainer = styled.div`
 	position: absolute;
@@ -21,10 +22,14 @@ const Back = styled.button`
 `
 
 export const BackButton = ({ isShowingBackText }) => {
+	const navigate = useNavigate();
 	return (
 		<>
-			<ButtonContainer isShowingBackText={isShowingBackText}>
-				<Link to={`/movies`}>
+			<ButtonContainer isShowingBackText={isShowingBackText}
+				onClick={() => {
+					navigate(-1);
+				}}
+			>
 					<ChevronContainer>
 						<BsChevronLeft 
 							color='#FFFFFF'
@@ -33,7 +38,6 @@ export const BackButton = ({ isShowingBackText }) => {
 						/>
 					</ChevronContainer>
 					{ isShowingBackText && <Back>Back</Back> }
-				</Link>
 			</ButtonContainer>
 		</>
 	)

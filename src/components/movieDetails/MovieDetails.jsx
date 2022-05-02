@@ -54,6 +54,7 @@ const MovieDetails = () => {
 			setDetails(fetchedDetails);
 			setCast(fetchedCast.cast);
 			setIsLoading(false);
+			// console.log(fetchedDetails);
 		}
 		getGlobalDetailsData();
 	}, []);
